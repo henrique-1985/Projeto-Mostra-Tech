@@ -1,7 +1,7 @@
 # Projeto Mostra Tech
 
 
-# Alunos
+## Alunos
 
 * Bruno Fernandes
 * Caroline Vitória Vieira de Abreu
@@ -11,22 +11,26 @@
 * Thiago Reis
 
 
-# Instalações
+## Instalações
 
-* Instalar Node.js na máquina
+* Instalar Node.js https://nodejs.org
 * Instalar Express.js no projeto
+
     No terminal --> npm install express --save
+
 * Instalar Sequelize
     --> npm install --save sequelize
+
 * Instalar módulo mysql2
+
     --> npm install --save mysql2
 
-# Banco de Dados
+## Banco de Dados
 
 * Criar user 'admin', com senha 'tech2025' e garantir privilégios;
 * Criar database 'mostra_tech';
 
-# Execução
+## Execução
 
     --> npm server
     ou
