@@ -11,8 +11,23 @@
 * Thiago Reis
 
 
-# Intalações
+# Instalações
 
 * Instalar Node.js na máquina
 * Instalar Express.js no projeto
-    No terminal --> npm install --express --save
+    No terminal --> npm install express --save
+* Instalar Sequelize
+    --> npm install --save sequelize
+* Instalar módulo mysql2
+    --> npm install --save mysql2
+
+# Banco de Dados
+
+* Criar user 'admin', com senha 'tech2025' e garantir privilégios;
+* Criar database 'mostra_tech';
+
+# Execução
+
+    --> npm server
+    ou
+    --> nodemon server

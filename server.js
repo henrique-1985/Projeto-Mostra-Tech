@@ -1,12 +1,11 @@
 //Configuração do Servidor com Express.js
 const express = require('express');
-const db= require('.models/db');
 const app = express();
 const port = 8081;
+const db= require('./models/db');
 
 //Configurando Body Parser
 const bodyParser = require('body-parser');
-const e = require('express');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -15,16 +14,38 @@ app.use(express.static('views'));
 app.use(express.static('models'));
 
 
-// Routes
+/*
+Models
+*/ 
+
+//DataBase
+
+(async() => {
+    try {
+        await db.sequelize.sync();
+    } catch (error) {
+        console.log("Erro ao sincronizar o banco de dados: " + error);
+    }
+});
+
+/*
+Routes
+*/
 
 //Página principal (index.html)
+
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/index.html');
+res.sendFile(__dirname + '/views/index.html');
 });
+
 
 
 
 // Iniciar Servidor
 
-app.listen(port);
-console.log(`Servidor rodando em http://localhost:${port}`);
+try{
+    app.listen(port);
+    console.log(`Servidor rodando em http://localhost:${port}`);
+}catch(error){
+    console.log("Erro ao iniciar o servidor: " + error);
+}
