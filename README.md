@@ -13,25 +13,52 @@
 
 ## Instalações
 
-* Instalar Node.js https://nodejs.org
-* Instalar Express.js no projeto
+### 1. Node.js
+* Baixar e instalar [Node.js](https://nodejs.org).
 
-    No terminal --> npm install express --save
+### 2. Express.js
 
-* Instalar Sequelize
-    --> npm install --save sequelize
+* Instalar o framework Express no terminal:
 
-* Instalar módulo mysql2
+    npm install express --save
 
-    --> npm install --save mysql2
+### 3. Sequelize
 
-## Banco de Dados
+* Instalar o ORM Sequelize no terminal:
 
-* Criar user 'admin', com senha 'tech2025' e garantir privilégios;
-* Criar database 'mostra_tech';
+    npm install --save sequelize
+
+### 4. MySQL2
+
+
+    npm install --save mysql2
+
+### 5. Banco de Dados (MySQL)
+
+* Criar usuário MySql:
+
+    CREATE USER 'admin'@'localhost' IDENTIFIED BY 'tech2025';
+
+* Garantir privilégios ao usuário:  
+
+    GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+    FLUSH PRIVILEGES;
+
+* Criar database:
+
+    CREATE DATABASE mostra_tech;
+
 
 ## Execução
 
+* Rodar servidor (no terminal):
+
     --> npm server
     ou
-    --> nodemon server
+    --> nodemon server 
+
+#### Nodemon
+* Para instalar o nodemon:
+
+    npm install -g nodemon
+
