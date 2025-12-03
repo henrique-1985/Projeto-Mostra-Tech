@@ -35,7 +35,7 @@
 
 ### 1. Node.js 
 
-* Baixar e instalar [Node.js](https://nodejs.org).
+* Baixar e instalar o [Node.js](https://nodejs.org).
 
 ### 2. Express.js 
 
