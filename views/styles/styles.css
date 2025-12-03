@@ -1,0 +1,94 @@
+/* Importação da fonte Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS reset e estilos globais */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    list-style-type: none;
+}
+
+a{
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* CSS da barra de navegação */
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+.logo{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.paginas-nav{
+    display: flex;
+    gap: 2rem;
+}
+
+.paginas-nav a {
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.paginas-nav a:hover {
+    color: greenyellow;
+}
+
+#icone-menu{
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+    transition: color 0.3s ease;
+}
+
+#icone-menu:hover{
+    color: greenyellow;
+}
+
+/* Estilos responsivos para mobile */
+@media (max-width: 768px){
+
+#icone-menu{
+    display: block;
+}
+
+.paginas-nav{
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    top:70px;
+    left: 0;
+    right:0;
+    gap: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.paginas-nav.aberto {
+    max-height: 300px;
+}
+
+nav ul li{
+    padding: 1rem;
+}
+
+}
