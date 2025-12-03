@@ -38,7 +38,24 @@ app.get('/', (req, res) => {
 res.sendFile(__dirname + '/views/routes/index.html');
 });
 
+// Página Sobre
 
+app.get('/sobre', (req, res) => {
+res.sendFile(__dirname + '/views/routes/sobre.html');
+});
+
+//Página Cadastro
+
+app.get('/cadastro', (req, res) => {
+res.sendFile(__dirname + '/views/routes/cadastro.html');
+});
+
+
+//Página Itens
+
+app.get('/itens', (req, res) => {
+res.sendFile(__dirname + '/views/routes/itens.html');
+});
 
 
 // Iniciar Servidor
