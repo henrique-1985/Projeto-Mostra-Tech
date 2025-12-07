@@ -20,9 +20,20 @@ const User = db.sequelize. define('user', {
     password: { 
         type: db.Sequelize.STRING, 
         allowNull: false
-    },
-},
+    }
+});
 
-//User.sync({force:true});
+/* bcrypt hash (converter a senha em hash para mais segurança) */
+User.beforeCreate(async (user, options) => {
+    return bcrypt.hash(user.password, 10)
+    .then(hash => {
+        user.password = hash;
+    })
+    .catch(err => {
+        throw new Error();
+    });
+});
+
+//User.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
 
 module.exports = User;

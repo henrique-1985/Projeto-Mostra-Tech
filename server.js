@@ -2,7 +2,9 @@
 const express = require('express');
 const app = express();
 const port = 8081;
-const db= require('./models/db');
+
+const db = require('./models/db');
+const User = require('./models/User');  
 
 //Configurando Body Parser
 const bodyParser = require('body-parser');
@@ -25,6 +27,23 @@ Models
         await db.sequelize.sync();
     } catch (error) {
         console.log("Erro ao sincronizar o banco de dados: " + error);
+    }
+});
+
+//User (Cadastro)
+
+app.post('/cadastro', async function (req, res) {
+    try {
+        await User.create({
+            id:req.body.id,
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password
+        });
+        res.redirect('/');
+        window.alert("Usuário cadastrado com sucesso!");
+    } catch (error) {
+        res.send("Erro ao cadastrar usuário: " + error);
     }
 });
 
