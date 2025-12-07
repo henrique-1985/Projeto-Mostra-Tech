@@ -60,7 +60,15 @@
     npm install --save mysql2
 ```
 
-### 5. Banco de Dados (MySQL)
+### 5. bcrypt
+
+* Instalar o bcrypt pra criptografar senhas:
+
+```bash
+    npm install bcrypt
+```
+
+### 6. Banco de Dados (MySQL)
 
 * Criar usuário MySql:
 
