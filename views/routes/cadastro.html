@@ -49,21 +49,21 @@
                 </div>
             </form>
 
-            <form action="#" method="#" class="caixa-form caixa-entrar">
+            <form action="/login" method="post" class="caixa-form caixa-entrar">
                 <div class="titulo-form">
                     <span>Login</span>
                 </div>
                 <div class="inputs-form">
                     <div class="caixa-input">
-                        <input type="email" class="inputs campo-input" placeholder="Insira seu email" required>
+                        <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu email" required>
                         <i class='bx  bx-envelope'></i> 
                     </div>
                         <div class="caixa-input">
-                        <input type="password" class="inputs campo-input" placeholder="Insira uma senha" required>
+                        <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
                         <i class='bx  bx-lock'></i> 
                     </div>
                     <div class="caixa-input">
-                        <button class="inputs botao-entrar">
+                        <button type="submit" class="inputs botao-entrar">
                             <span>Entrar</span>
                         </button>
                     </div>
