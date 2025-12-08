@@ -4,6 +4,7 @@ const app = express();
 const port = 8081;
 
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const db = require('./models/db');
 const User = require('./models/User');  
