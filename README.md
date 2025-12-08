@@ -66,9 +66,18 @@
 
 ```bash
     npm install bcrypt
+
+```
+### 6. jsonwebtoken
+
+* Instalar o jsonwebtoken para o login de usuários:
+
+```bash
+    npm install jsonwebtoken
+
 ```
 
-### 6. Banco de Dados (MySQL)
+### 7. Banco de Dados (MySQL)
 
 * Criar usuário MySql:
 

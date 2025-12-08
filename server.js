@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const port = 8081;
 
+const jwt = require('jsonwebtoken');
+
 const db = require('./models/db');
 const User = require('./models/User');  
 
@@ -76,6 +78,25 @@ app.get('/itens', (req, res) => {
 res.sendFile(__dirname + '/views/routes/itens.html');
 });
 
+//Login
+
+app.post('/login', async (req, res) =>{
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ where: { email } });
+        if (!user) {
+            return res.status(400).send('Usuário não encontrado');
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).send('Senha incorreta');
+        }
+        const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
+        res.status(200).json({'Login realizado com sucesso': token});
+    } catch (error) {
+        res.status(500).send('Erro no servidor: ' + error);
+    }   
+});
 
 // Iniciar Servidor
 
