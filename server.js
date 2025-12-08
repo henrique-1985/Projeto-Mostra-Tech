@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 
 const db = require('./models/db');
 const User = require('./models/User');  
+const Donation = require('./models/Donation');
 
 //Configurando Body Parser
 const bodyParser = require('body-parser');
@@ -50,6 +51,23 @@ app.post('/cadastro', async function (req, res) {
     }
 });
 
+
+//Donation (caadastro de items)
+
+app.post('/donate', async function (req, res) {
+    try {
+        await Donation.create({
+            itemType:req.body.itemType,
+            description:req.body.description,
+            quantity:req.body.quantity
+        });
+        res.redirect('/itens');
+        window.alert("Item cadastrado com sucesso!");
+    } catch (error) {
+        res.send("Erro ao cadastrar item: " + error);
+    }
+});
+
 /*
 Routes
 */
@@ -78,6 +96,7 @@ res.sendFile(__dirname + '/views/routes/cadastro.html');
 app.get('/itens', (req, res) => {
 res.sendFile(__dirname + '/views/routes/itens.html');
 });
+
 
 //Login
 
