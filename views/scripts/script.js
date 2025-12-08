@@ -1,18 +1,26 @@
-fetch('../extras/barra-navegacao.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('link-navbar').innerHTML = data;
-    mostrarMenu(); // Inicializa a funcionalidade do menu após carregar o HTML
-  })
-  .catch(error => {
-    console.error('Erro, não foi possível carregar a barra de navegação:', error);
-  });
+const botaoCadastrar = document.querySelector("#cadastrar");
+const botaoLogin = document.querySelector("#login");
+const formCadastrar = document.querySelector(".caixa-cadastrar");
+const formLogin = document.querySelector(".caixa-entrar");
 
-function mostrarMenu() {
-    const botaoMenu = document.getElementById("icone-menu");
-    const listaMenu = document.querySelector(".paginas-nav");
-    
-    botaoMenu.addEventListener("click", () => {
-        listaMenu.classList.toggle("aberto");
-    });
-}
+botaoCadastrar.addEventListener("click", () => {
+  botaoCadastrar.style.backgroundColor = "#71539c";
+  botaoLogin.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+
+  formCadastrar.style.left = "50%";
+  formLogin.style.left = "-50%";
+  
+  formCadastrar.style.opacity = "1";
+  formLogin.style.opacity = "0";
+})
+
+botaoLogin.addEventListener("click", () => {
+  botaoCadastrar.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+  botaoLogin.style.backgroundColor = "#71539c";
+
+  formCadastrar.style.left = "150%";
+  formLogin.style.left = "50%";
+  
+  formCadastrar.style.opacity = "0";
+  formLogin.style.opacity = "1";
+})
