@@ -93,7 +93,10 @@ app.post('/login', async (req, res) =>{
             return res.status(400).send('Senha incorreta');
         }
         const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
-        res.status(200).json({'Login realizado com sucesso': token});
+        res.redirect('/itens');
+        console.log('Login realizado com sucesso');
+    
+        //res.status(200).json({'Login realizado com sucesso': token});
     } catch (error) {
         res.status(500).send('Erro no servidor: ' + error);
     }   
