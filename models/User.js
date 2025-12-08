@@ -35,6 +35,6 @@ User.beforeCreate(async (user, options) => {
     });
 });
 
-User.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
+//User.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
 
 module.exports = User;
