@@ -14,7 +14,8 @@ const User = db.sequelize. define('user', {
         allowNull: false
     },
     email: { 
-        type: db.Sequelize.STRING,unique: true, 
+        type: db.Sequelize.STRING,
+        unique: true, 
         allowNull: false
     },
     password: { 
@@ -34,6 +35,6 @@ User.beforeCreate(async (user, options) => {
     });
 });
 
-//User.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
+User.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
 
 module.exports = User;
