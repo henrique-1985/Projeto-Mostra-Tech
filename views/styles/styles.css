@@ -1,12 +1,12 @@
 /* Importação da fonte Montserrat do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Unkempt:wght@400;700&display=swap');
 
 /* CSS reset e estilos globais */
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Inter Tight', sans-serif;
     list-style-type: none;
     scroll-behavior: smooth;
 }
@@ -24,18 +24,17 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 7%;
+    padding: 0.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
 }
 
-.logo{
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    font-weight: 800;
+.logo img{
+    width: 8.5rem;
 }
 
 .paginas-nav{
@@ -47,10 +46,11 @@ nav{
   color: rgb(0, 0, 0);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-family: 'Inter Tight', sans-serif;
 }
 
 .paginas-nav a:hover {
-    color: #ff9502;
+    color: #e32b2b;
 }
 
 #icone-menu{
@@ -61,12 +61,12 @@ nav{
 }
 
 #icone-menu:hover{
-    color: #ff9502;
+    color: #e32b2b;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     padding: 100px 5%;
     text-align: center;
@@ -74,12 +74,14 @@ nav{
 
 .hero h1 {
     font-size: 48px;
+    margin-top: 40px;
     margin-bottom: 20px;
+    font-family: "unkempt", sans-serif;
 }
 
 .hero p {
     font-size: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .hero-buttons {
@@ -87,6 +89,7 @@ nav{
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: -25px;
 }
 
 .btn-secondary {
@@ -97,10 +100,12 @@ nav{
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
+    transition: ease 0.3s;
 }
 
 .btn-secondary:hover {
-    color: #ff9502;
+    color: #e32b2b;
+    transform: translateY(-4px);
 }
 
 /* ODS Section */
@@ -187,7 +192,7 @@ nav{
 .step-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -210,7 +215,7 @@ nav{
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     padding: 80px 5%;
     text-align: center;
@@ -218,7 +223,8 @@ nav{
 
 .cta-section h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: "unkempt", sans-serif;
 }
 
 .cta-section p {
@@ -230,6 +236,7 @@ nav{
 /* CSS da página de cadastro */
 
 .body-cadastro{
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,10 +247,10 @@ nav{
     display: flex;
     width: 450px;
     height: 500px;
-    border: 3px solid rgba(0, 0, 0, 0.2);
+    border: 5px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
     overflow: hidden;
-    background-color: #c0afff;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .coluna-form {
@@ -271,7 +278,7 @@ nav{
 }
 
 .trocar-cadastrar{
-    background-color: #71539c;
+    background-color: #6aa3dd;
 }
 
 .botao:hover {
@@ -356,7 +363,7 @@ nav{
     justify-content: center;
     gap: 10px;
     color: white;
-    background-color: #71539c;
+    background-color: #6aa3dd;
     cursor: pointer;
     transition: .3s;
 }
@@ -376,7 +383,7 @@ nav{
     position: absolute;
     flex-direction: column;
     text-align: center;
-    top: 61px;
+    top: 74px;
     left: 0;
     right:0;
     gap: 0;
