@@ -5,7 +5,7 @@ const formLogin = document.querySelector(".caixa-entrar");
 
 botaoCadastrar.addEventListener("click", () => {
   botaoCadastrar.style.backgroundColor = "#6aa3dd";
-  botaoLogin.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+  botaoLogin.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
 
   formCadastrar.style.left = "50%";
   formLogin.style.left = "-50%";
@@ -15,7 +15,7 @@ botaoCadastrar.addEventListener("click", () => {
 })
 
 botaoLogin.addEventListener("click", () => {
-  botaoCadastrar.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+  botaoCadastrar.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
   botaoLogin.style.backgroundColor = "#6aa3dd";
 
   formCadastrar.style.left = "150%";
