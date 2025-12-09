@@ -42,7 +42,8 @@ app.post('/cadastro', async function (req, res) {
             id:req.body.id,
             name:req.body.name,
             email:req.body.email,
-            password:req.body.password
+            password:req.body.password,
+            isONG:req.body.isONG
         });
         res.redirect('/');
         window.alert("Usuário cadastrado com sucesso!");

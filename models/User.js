@@ -21,6 +21,10 @@ const User = db.sequelize. define('user', {
     password: { 
         type: db.Sequelize.STRING, 
         allowNull: false
+    },
+    isONG:{
+        type: db.Sequelize.BOOLEAN,
+        defaultValue: false // false para usuário comum, true para ONG
     }
 });
 
