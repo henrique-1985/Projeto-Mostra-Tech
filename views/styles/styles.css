@@ -319,6 +319,8 @@ nav{
     border-radius: 20px;
     margin-top: -10px;
     transition: 0.3s;
+    background-color: white;
+    border: solid 2px #cecece;
 }
 
 .botao-saber:hover {
