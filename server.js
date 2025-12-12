@@ -19,6 +19,8 @@ app.use(bodyParser.json());
 app.use(express.static('views'));
 app.use(express.static('models'));
 
+app.set('view engine', 'ejs');
+
 
 /*
 Models
@@ -62,7 +64,7 @@ app.post('/donate', async function (req, res) {
             description:req.body.description,
             quantity:req.body.quantity
         });
-        res.redirect('/itens');
+        res.redirect('/doacoes');
         window.alert("Item cadastrado com sucesso!");
     } catch (error) {
         res.send("Erro ao cadastrar item: " + error);
@@ -91,11 +93,25 @@ app.get('/cadastro', (req, res) => {
 res.sendFile(__dirname + '/views/routes/cadastro.html');
 });
 
+//usuarios teste
+
+app.get('/usuarios', async (req, res) => {
+    try{
+        const users =  await User.findAll();
+        res.render('routes/doacoes.ejs', { users });
+    } catch (error){
+        res.send("Erro ao listar usuários: " + error);
+    }
+
+   
+});
 
 //Página Itens
 
-app.get('/itens', (req, res) => {
-res.sendFile(__dirname + '/views/routes/itens.html');
+app.get('/doacoes',  (req, res) => {
+    
+   res.sendFile(__dirname + '/views/routes/doacoes.html');
+
 });
 
 
@@ -113,10 +129,8 @@ app.post('/login', async (req, res) =>{
             return res.status(400).send('Senha incorreta');
         }
         const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
-        res.redirect('/itens');
+        res.redirect('/doacoes');
         console.log('Login realizado com sucesso');
-
-    
         //res.status(200).json({'Login realizado com sucesso': token});
     } catch (error) {
         res.status(500).send('Erro no servidor: ' + error);

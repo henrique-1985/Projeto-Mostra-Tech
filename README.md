@@ -76,8 +76,15 @@
     npm install jsonwebtoken
 
 ```
+### 7. Ejs
 
-### 7. Banco de Dados (MySQL)
+* Instalar o Ejs:
+
+```bash
+    npm install ejs
+```
+
+### 8. Banco de Dados (MySQL)
 
 * Criar usuário MySql:
 
