@@ -16,6 +16,30 @@ a{
     text-decoration: none;
 }
 
+.btn-adicionar {
+    z-index: 1;
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    background-color: #6aa3dd;
+    border: none;
+    padding: 40px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 20px 0 0 0;
+}
+
+.btn-adicionar a {
+    color: white;
+    font-weight: 600;
+}
+
+.btn-adicionar:hover {
+    background-color: #5a92c9;
+}
+
+
 /* CSS da barra de navegação */
 
 nav{
