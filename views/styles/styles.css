@@ -242,6 +242,67 @@ nav{
     transform: translateY(-4px);
 }
 
+/* CSS da página de doações */
+
+.lista-itens {
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.item {
+    border-radius: 10px;
+    border: solid 2px #cecece;
+    height: 380px;
+    width: 300px;
+}
+
+.imagem-doacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-doacao img {
+    width: 220px;
+    margin: 15px 0;
+}
+
+.info-item {
+    padding: 0 15px;
+}
+
+.info-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.info-item .descricao-item {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.linha-doador {
+    display: flex;
+    gap: 25px;
+}
+
+.botao-saber {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: -10px;
+    transition: 0.3s;
+}
+
+.botao-saber:hover {
+    background-color: #6aa3dd;
+    color: white;
+}
+
+
 /* CSS da página de cadastro */
 
 .body-cadastro{
