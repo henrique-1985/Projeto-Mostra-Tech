@@ -1,13 +1,14 @@
-/* Importação da fonte Montserrat do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importação das fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Unkempt:wght@400;700&display=swap');
 
 /* CSS reset e estilos globais */
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Inter Tight', sans-serif;
     list-style-type: none;
+    scroll-behavior: smooth;
 }
 
 a{
@@ -19,20 +20,22 @@ a{
 
 nav{
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 7%;
+    padding: 0.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
-.logo{
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    font-weight: 800;
+.logo img{
+    width: 8.5rem;
 }
 
 .paginas-nav{
@@ -44,59 +47,27 @@ nav{
   color: rgb(0, 0, 0);
   font-weight: 500;
   transition: color 0.3s ease;
+  font-family: 'Inter Tight', sans-serif;
 }
 
 .paginas-nav a:hover {
-    color: #ff9502;
+    color: #e32b2b;
 }
 
 #icone-menu{
     font-size: 1.8rem;
-    color: white;
     cursor: pointer;
     display: none;
     transition: color 0.3s ease;
 }
 
 #icone-menu:hover{
-    color: #ff9502;
+    color: #e32b2b;
 }
-
-/* Estilos responsivos para mobile */
-@media (max-width: 768px){
-
-#icone-menu{
-    display: block;
-}
-
-.paginas-nav{
-    position: absolute;
-    flex-direction: column;
-    text-align: center;
-    top:70px;
-    left: 0;
-    right:0;
-    gap: 0;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.paginas-nav.aberto {
-    max-height: 300px;
-}
-
-nav ul li{
-    padding: 1rem;
-}
-
-}
-
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     padding: 100px 5%;
     text-align: center;
@@ -104,13 +75,14 @@ nav ul li{
 
 .hero h1 {
     font-size: 48px;
+    margin-top: 40px;
     margin-bottom: 20px;
+    font-family: "unkempt", sans-serif;
 }
 
 .hero p {
     font-size: 20px;
-    margin-bottom: 40px;
-    opacity: 0.95;
+    margin-bottom: 20px;
 }
 
 .hero-buttons {
@@ -118,6 +90,7 @@ nav ul li{
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: -25px;
 }
 
 .btn-secondary {
@@ -127,11 +100,12 @@ nav ul li{
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: ease 0.3s;
 }
 
 .btn-secondary:hover {
-    color: #ff9502;
+    color: #e32b2b;
+    transform: translateY(-4px);
 }
 
 /* ODS Section */
@@ -218,7 +192,7 @@ nav ul li{
 .step-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -241,7 +215,7 @@ nav ul li{
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(135deg, #ff9502 0%, #4420c6 100%);
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     color: white;
     padding: 80px 5%;
     text-align: center;
@@ -249,11 +223,266 @@ nav ul li{
 
 .cta-section h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: "unkempt", sans-serif;
 }
 
 .cta-section p {
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     opacity: 0.95;
+}
+
+.cta-section .btn-secondary {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-secondary:hover {
+    transform: translateY(-4px);
+}
+
+/* CSS da página de doações */
+
+.lista-itens {
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.item {
+    border-radius: 10px;
+    border: solid 2px #cecece;
+    height: 380px;
+    width: 300px;
+}
+
+.imagem-doacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-doacao img {
+    width: 220px;
+    margin: 15px 0;
+}
+
+.info-item {
+    padding: 0 15px;
+}
+
+.info-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.info-item .descricao-item {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.linha-doador {
+    display: flex;
+    gap: 25px;
+}
+
+.botao-saber {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: -10px;
+    transition: 0.3s;
+}
+
+.botao-saber:hover {
+    background-color: #6aa3dd;
+    color: white;
+}
+
+
+/* CSS da página de cadastro */
+
+.body-cadastro{
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-form-cad {
+    display: flex;
+    width: 450px;
+    height: 500px;
+    margin-top: 45px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    
+}
+
+.coluna-form {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.botoes-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.botao {
+    font-weight: 500;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.trocar-cadastrar{
+    background-color: #6aa3dd;
+}
+
+.botao:hover {
+    opacity:  0.85;
+}
+
+.caixa-form {
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    transition: .3s;
+}
+
+.caixa-cadastrar {
+    left: 50%;
+}
+
+.caixa-entrar {
+    left: -50%;
+    margin-top: 30px;
+}
+
+.inputs-form {
+    width: 100%;
+}
+
+.caixa-input{
+    position: relative;
+}
+
+.inputs {
+    width: 100%;
+    height: 55px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 50px;
+}
+
+.campo-input {
+    font-size: 16px;
+    padding: 0 40px 0 20px;
+    outline: none;
+}
+
+.caixa-input .bx{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 17px;
+    height: 17px;
+}
+
+.titulo-form {
+    margin: 30px 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.esquecer-senha {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+
+.esquecer-senha a {
+    color: black;
+    font-size: 14px;
+}
+
+.esquecer-senha a:hover {
+    text-decoration: underline;
+}
+
+.botao-entrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    background-color: #6aa3dd;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+}
+
+.botao-entrar:hover {
+    gap: 15px;
+}
+
+/* Estilos responsivos para mobile */
+@media (max-width: 768px){
+
+#icone-menu{
+    display: block;
+}
+
+.paginas-nav{
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    top: 74px;
+    left: 0;
+    right:0;
+    gap: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.paginas-nav.aberto {
+    max-height: 300px;
+}
+
+.paginas-nav a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    transition: ease 0.4s;
+}
+
+.paginas-nav a:hover {
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+
+}
+
 }

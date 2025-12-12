@@ -2,7 +2,13 @@
 const express = require('express');
 const app = express();
 const port = 8081;
-const db= require('./models/db');
+
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+const db = require('./models/db');
+const User = require('./models/User');  
+const Donation = require('./models/Donation');
 
 //Configurando Body Parser
 const bodyParser = require('body-parser');
@@ -25,6 +31,41 @@ Models
         await db.sequelize.sync();
     } catch (error) {
         console.log("Erro ao sincronizar o banco de dados: " + error);
+    }
+});
+
+//User (Cadastro)
+
+app.post('/cadastro', async function (req, res) {
+    try {
+        await User.create({
+            id:req.body.id,
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password,
+            isONG:req.body.isONG
+        });
+        res.redirect('/');
+        window.alert("Usuário cadastrado com sucesso!");
+    } catch (error) {
+        res.send("Erro ao cadastrar usuário: " + error);
+    }
+});
+
+
+//Donation (caadastro de items)
+
+app.post('/donate', async function (req, res) {
+    try {
+        await Donation.create({
+            itemType:req.body.itemType,
+            description:req.body.description,
+            quantity:req.body.quantity
+        });
+        res.redirect('/itens');
+        window.alert("Item cadastrado com sucesso!");
+    } catch (error) {
+        res.send("Erro ao cadastrar item: " + error);
     }
 });
 
@@ -57,6 +98,30 @@ app.get('/itens', (req, res) => {
 res.sendFile(__dirname + '/views/routes/itens.html');
 });
 
+
+//Login
+
+app.post('/login', async (req, res) =>{
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ where: { email } });
+        if (!user) {
+            return res.status(400).send('Usuário não encontrado');
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).send('Senha incorreta');
+        }
+        const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
+        res.redirect('/itens');
+        console.log('Login realizado com sucesso');
+
+    
+        //res.status(200).json({'Login realizado com sucesso': token});
+    } catch (error) {
+        res.status(500).send('Erro no servidor: ' + error);
+    }   
+});
 
 // Iniciar Servidor
 
