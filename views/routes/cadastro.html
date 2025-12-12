@@ -1,83 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShareSpot | Cadastro</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="../imgs/logo_2.png"/>
-    <script src="../scripts/barra-nav-script.js"></script>
-</head>
-<body class="body-cadastro">
-    <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
-    
-    <div class="container-form-cad">
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ShareSpot | Cadastro</title>
+        <link rel="stylesheet" href="../styles/styles.css">
+        <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" type="image/png" href="../imgs/logo_2.png"/>
+        <script src="../scripts/barra-nav-script.js"></script>
+    </head>
+    <body class="body-cadastro">
+        <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
+        
+        <div class="container-form-cad">
 
-        <div class="coluna-form">
+            <div class="coluna-form">
 
-            <div class="botoes-form">
-                <button class="botao trocar-cadastrar" id="cadastrar">Cadastrar</botao>
-                <button class="botao trocar-entrar" id="login">Entrar</botao>
-            </div>
+                <div class="botoes-form">
+                    <button class="botao trocar-cadastrar" id="cadastrar">Cadastrar</botao>
+                    <button class="botao trocar-entrar" id="login">Entrar</botao>
+                </div>
 
 
-            <form action="/cadastro" method="post" class="caixa-form caixa-cadastrar">
-                
-                <span class="titulo-form">Cadastre-se</span>
-                
-                <div class="inputs-form">
-                    <div class="checkbox-ong">
-                        <input name="isONG" value="ong" id="tipo-usuario" type="checkbox">
-                        <label for ="tipo-usuario">Cadastrar como ONG</label>
-                    </div>
-                    <div class="caixa-input">
-                        <input type="text" name="name" class="inputs campo-input" placeholder="Insira seu nome" required>
-                        <i class='bx  bx-user'></i> 
-                    </div>
-                    <div class="caixa-input">
-                        <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu email" required>
-                        <i class='bx  bx-envelope'></i> 
-                    </div>
-                        <div class="caixa-input">
-                        <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
-                        <i class='bx  bx-lock'></i> 
-                    </div>
-                    <div class="esquecer-senha">
-                        <a href="#">Esqueci minha senha</a>
-                    </div>
+                <form action="/cadastro" method="post" class="caixa-form caixa-cadastrar">
                     
-                    <div class="caixa-input">
-                        <button type="submit" class="inputs botao-entrar">
-                            <span>Cadastrar</span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-            <form action="/login" method="post" class="caixa-form caixa-entrar">
-    
-                <span class="titulo-form">Login</span>
-                <div class="inputs-form">
-                    <div class="caixa-input">
-                        <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu email" required>
-                        <i class='bx  bx-envelope'></i> 
-                    </div>
+                    <span class="titulo-form">Cadastre-se</span>
+                    
+                    <div class="inputs-form">
+                        <div class="checkbox-ong">
+                            <input name="isONG" value="ong" id="tipo-usuario" type="checkbox">
+                            <label for ="tipo-usuario">Cadastrar como ONG</label>
+                        </div>
                         <div class="caixa-input">
-                        <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
-                        <i class='bx  bx-lock'></i> 
+                            <input type="text" name="name" class="inputs campo-input" placeholder="Insira seu nome" required>
+                            <i class='bx  bx-user'></i> 
+                        </div>
+                        <div class="caixa-input">
+                            <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu email" required>
+                            <i class='bx  bx-envelope'></i> 
+                        </div>
+                            <div class="caixa-input">
+                            <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
+                            <i class='bx  bx-lock'></i> 
+                        </div>
+                        <div class="esquecer-senha">
+                            <a href="#">Esqueci minha senha</a>
+                        </div>
+                        
+                        <div class="caixa-input">
+                            <button type="submit" class="inputs botao-entrar">
+                                <span>Cadastrar</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="caixa-input">
-                        <button type="submit" class="inputs botao-entrar">
-                            <span>Entrar</span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            
-        </div>
-    </div>
+                </form>
 
-    <script src="../scripts/script.js"></script>
-</body>
+                <form action="/login" method="post" class="caixa-form caixa-entrar">
+        
+                    <span class="titulo-form">Login</span>
+                    <div class="inputs-form">
+                        <div class="caixa-input">
+                            <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu email" required>
+                            <i class='bx  bx-envelope'></i> 
+                        </div>
+                            <div class="caixa-input">
+                            <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
+                            <i class='bx  bx-lock'></i> 
+                        </div>
+                        <div class="caixa-input">
+                            <button type="submit" class="inputs botao-entrar">
+                                <span>Entrar</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+
+        <script src="../scripts/script.js"></script>
+    </body>
 </html>

@@ -115,6 +115,7 @@ app.post('/login', async (req, res) =>{
         const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
         res.redirect('/itens');
         console.log('Login realizado com sucesso');
+        window.alert("Login realizado com sucesso", user.name, user.isONG);
     
         //res.status(200).json({'Login realizado com sucesso': token});
     } catch (error) {
