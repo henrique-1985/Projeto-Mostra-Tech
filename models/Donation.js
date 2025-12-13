@@ -10,8 +10,8 @@ const Donation = db.sequelize.define('donation', {
         type: db.Sequelize.TEXT,
         allowNull: false
     },
-    quantity: {
-        type: db.Sequelize.INTEGER,
+    donator: {
+        type: db.Sequelize.STRING,
         allowNull: false
     }
 });

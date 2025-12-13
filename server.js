@@ -62,7 +62,7 @@ app.post('/donate', async function (req, res) {
         await Donation.create({
             itemType:req.body.itemType,
             description:req.body.description,
-            quantity:req.body.quantity
+            donator:req.body.donator
         });
         res.redirect('/doacoes');
         window.alert("Item cadastrado com sucesso!");
@@ -98,9 +98,22 @@ res.sendFile(__dirname + '/views/routes/cadastro.html');
 app.get('/usuarios', async (req, res) => {
     try{
         const users =  await User.findAll();
-        res.render('routes/doacoes.ejs', { users });
+        res.render('routes/usuarios.ejs', { users });
     } catch (error){
         res.send("Erro ao listar usuários: " + error);
+    }
+
+   
+});
+
+//doacoes teste
+
+app.get('/doacoes-teste', async (req, res) => {
+    try{
+        const donations =  await Donation.findAll();
+        res.render('routes/doacoes.ejs', { donations });
+    } catch (error){
+        res.send("Erro ao listar doações: " + error);
     }
 
    
@@ -112,6 +125,12 @@ app.get('/doacoes',  (req, res) => {
     
    res.sendFile(__dirname + '/views/routes/doacoes.html');
 
+});
+
+//Página de Cadastro de Itens
+
+app.get('/cadastrar-doacao', (req, res) => {
+    res.sendFile(__dirname + '/views/routes/cadastrar_doacao.html');
 });
 
 

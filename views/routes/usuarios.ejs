@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ShareSpot | Doações</title>
+        <title>ShareSpot | Usuarios</title>
         <link rel="icon" type="image/png" href="../imgs/logo_2.png"/>
         <link rel="stylesheet" href="../styles/styles.css">
         <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
@@ -11,10 +11,11 @@
     </head>
     <body>
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
-        <h1>Doações</h1>
+        <h1>Usuarios</h1>
         <ul>
-            <% donations.forEach(donation => { %>
-                <li><strong>Item: <%= donation.itemType %></strong><br>Descrição: <%= donation.description %><br> Doador: <%= donation.donator %></li>
+            <% users.forEach(user => { %>
+                <li><strong>User: <%= user.name %></strong>></li>
+                <li>Email: <%= user.email %></li>
             <%
             }); %>
         </ul>
