@@ -17,17 +17,17 @@ a{
 }
 
 .btn-adicionar {
-    z-index: 1;
     position: fixed;
-    bottom: 1px;
-    right: 1px;
-    background-color: #6aa3dd;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     border: none;
-    padding: 40px 20px;
-    font-size: 1rem;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     cursor: pointer;
-    transition: .3s;
-    border-radius: 20px 0 0 0;
+    transition: transform 0.3s;
+    z-index: 50;
 }
 
 .btn-adicionar a {
@@ -36,7 +36,7 @@ a{
 }
 
 .btn-adicionar:hover {
-    background-color: #5a92c9;
+    transform: translateY(-4px);
 }
 
 
@@ -268,64 +268,165 @@ nav{
 
 /* CSS da página de doações */
 
+.catalogo {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 5%;
+}
+
 .lista-itens {
-    gap: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 50px;
+    padding: 0;
+    list-style: none;
 }
 
 .item {
-    border-radius: 10px;
-    border: solid 2px #cecece;
-    height: 380px;
-    width: 300px;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid #e0e0e0;
+    height: auto;
+    min-height: 420px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: #6aa3dd;
 }
 
 .imagem-doacao {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    min-height: 200px;
 }
 
 .imagem-doacao img {
-    width: 220px;
-    margin: 15px 0;
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.item:hover .imagem-doacao img {
+    transform: scale(1.05);
 }
 
 .info-item {
-    padding: 0 15px;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .info-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.3;
 }
 
 .info-item .descricao-item {
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
 }
 
 .linha-doador {
     display: flex;
-    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    margin-top: auto;
+}
+
+.nome-doador {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nome-doador::before {
+    content: '👤';
+    font-size: 1rem;
 }
 
 .botao-saber {
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-top: -10px;
-    transition: 0.3s;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid #6aa3dd;
     background-color: white;
-    border: solid 2px #cecece;
+    color: #6aa3dd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .botao-saber:hover {
     background-color: #6aa3dd;
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(106, 163, 221, 0.3);
+}
+
+.botao-saber:active {
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .lista-itens {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 50px;
+    }
+
+    .item {
+        min-height: auto;
+    }
+
+    .linha-doador {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .botao-saber {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .lista-itens {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .lista-itens {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 
