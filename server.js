@@ -78,19 +78,19 @@ Routes
 //Página principal (index.html)
 
 app.get('/', (req, res) => {
-res.sendFile(__dirname + '/views/routes/index.html');
+    res.sendFile(__dirname + '/views/routes/index.html');
 });
 
 // Página Sobre
 
 app.get('/sobre', (req, res) => {
-res.sendFile(__dirname + '/views/routes/sobre.html');
+    res.sendFile(__dirname + '/views/routes/sobre.html');
 });
 
 //Página Cadastro
 
 app.get('/cadastro', (req, res) => {
-res.sendFile(__dirname + '/views/routes/cadastro.html');
+    res.sendFile(__dirname + '/views/routes/cadastro.html');
 });
 
 //usuarios teste
