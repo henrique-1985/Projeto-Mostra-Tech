@@ -123,8 +123,9 @@ app.get('/doacoes-teste', async (req, res) => {
 //Página Itens
 
 app.get('/doacoes',  (req, res) => {
+    
     res.sendFile(__dirname + '/views/routes/doacoes.html');
-
+    
 });
 
 //Página de Cadastro de Itens
@@ -147,11 +148,12 @@ app.post('/login', async (req, res) =>{
         if (!isMatch) {
             return res.status(400).send('Senha incorreta');
         }
-        var token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
-        return res.ok(token);
-        res.redirect('/doacoes');
-        console.log('Login realizado com sucesso');
-        //res.status(200).json({'Login realizado com sucesso': token});
+        if (user.isONG) {
+            res.redirect('/doacoes#ong');
+        } else {
+            res.redirect('/doacoes');
+        }
+       
     } catch (error) {
         res.status(500).send('Erro no servidor: ' + error);
     }   
