@@ -394,7 +394,13 @@ nav{
     transform: translateY(0);
 }
 
+#ong {
+    display: none;
+}
+
+
 /* Responsividade */
+
 @media (max-width: 768px) {
     .lista-itens {
         grid-template-columns: 1fr;

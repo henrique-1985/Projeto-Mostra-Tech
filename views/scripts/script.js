@@ -1,9 +1,10 @@
+//Script para alternar entre os formulários de login e cadastro
 const botaoCadastrar = document.querySelector("#cadastrar");
 const botaoLogin = document.querySelector("#login");
 const formCadastrar = document.querySelector(".caixa-cadastrar");
 const formLogin = document.querySelector(".caixa-entrar");
 
-botaoCadastrar.addEventListener("click", () => {
+botaoCadastrar.addEventListener("click", () => { // Troca para o formulário de cadastro ao clicar no botão cadastrar
   botaoCadastrar.style.backgroundColor = "#6aa3dd";
   botaoLogin.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
 
@@ -14,7 +15,7 @@ botaoCadastrar.addEventListener("click", () => {
   formLogin.style.opacity = "0";
 })
 
-botaoLogin.addEventListener("click", () => {
+botaoLogin.addEventListener("click", () => { // Troca para o formulário de login ao clicar no botão entrar
   botaoCadastrar.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
   botaoLogin.style.backgroundColor = "#6aa3dd";
 
