@@ -13,18 +13,14 @@
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
         
         <div class="container-form-cad">
-
             <div class="coluna-form">
 
-                <div class="botoes-form">
-                    <button class="botao trocar-cadastrar" id="cadastrar">Cadastrar</botao>
-                    <button class="botao trocar-entrar" id="login">Entrar</botao>
+                <div class="logo-form">
+                <a href="../routes/index.html"><img alt="Logo" src="../imgs/logo_2.png"></a>
                 </div>
 
-                <form action="/cadastro" method="post" class="caixa-form caixa-cadastrar">
-                    
+                <form action="/cadastro" method="post" class="caixa-form caixa-cadastrar">    
                     <span class="titulo-form">Cadastre-se</span>
-                    
                     <div class="inputs-form">
                         <div class="checkbox-ong">
                             <input name="isONG" value="true" id="tipo-usuario" type="checkbox">
@@ -42,20 +38,15 @@
                             <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
                             <i class='bx  bx-lock'></i> 
                         </div>
-                        <div class="esquecer-senha">
-                            <a href="#">Esqueci minha senha</a>
-                        </div>
-                        
-                        <div class="caixa-input">
-                            <button type="submit" class="inputs botao-entrar">
-                                <span>Cadastrar</span>
-                            </button>
+                        <button type="submit" class="inputs botao-entrar">Cadastrar</button>
+                        <div class="transicao-form" id="ir-login">
+                            <p class="trocar-entrar">Já possui uma conta? <span>Entre agora!</span></p>
+                            <i class='bx  bx-door-open'></i>  
                         </div>
                     </div>
                 </form>
 
                 <form action="/login" method="post" class="caixa-form caixa-entrar">
-        
                     <span class="titulo-form">Login</span>
                     <div class="inputs-form">
                         <div class="caixa-input">
@@ -63,13 +54,17 @@
                             <i class='bx  bx-envelope'></i> 
                         </div>
                             <div class="caixa-input">
-                            <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma senha" required>
+                            <input type="password" name="password" class="inputs campo-input" placeholder="Insira sua senha" required>
                             <i class='bx  bx-lock'></i> 
                         </div>
                         <div class="caixa-input">
                             <button type="submit" class="inputs botao-entrar">
                                 <span>Entrar</span>
                             </button>
+                        </div>
+                        <div class="transicao-form" id="ir-cadastrar">
+                            <p class="trocar-entrar">Não possui uma conta? <span>Junte-se a nós agora!</span></p>
+                            <i class='bx  bx-door-open'></i> 
                         </div>
                     </div>
                 </form>
