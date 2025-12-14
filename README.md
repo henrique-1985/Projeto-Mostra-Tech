@@ -3,12 +3,11 @@
 
 ## Alunos
 
-* Bruno Fernandes
 * Caroline Vitória Vieira de Abreu
-* Gabriel Weydson
 * Miguel
 * Thiago Henrique de Nascimento Assis
 * Thiago Reis
+* Rodrigo Wollemberg
 
 ## Tecnologias utilizadas
 
