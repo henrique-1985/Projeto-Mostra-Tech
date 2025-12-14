@@ -619,3 +619,79 @@ nav{
 }
 
 }
+
+/* ============================= */
+/* Página Sobre – Estilo Institucional */
+/* ============================= */
+
+.sobre-container {
+    padding: 120px 5% 80px;
+    background-color: #f8f9fa;
+}
+
+.sobre-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 60px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.sobre-header h1 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.sobre-subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.sobre-texto p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    text-align: justify;
+}
+
+.sobre-destaques {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.destaque {
+    padding: 25px;
+    border-radius: 14px;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+}
+
+.destaque h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.destaque p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .sobre-content {
+        padding: 35px 25px;
+    }
+
+    .sobre-header h1 {
+        font-size: 2rem;
+    }
+}
