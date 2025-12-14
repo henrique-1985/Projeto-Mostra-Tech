@@ -14,7 +14,10 @@
         <h1>Doações</h1>
         <ul>
             <% donations.forEach(donation => { %>
-                <li><strong>Item: <%= donation.itemType %></strong><br>Descrição: <%= donation.description %><br> Doador: <%= donation.donator %></li>
+                <li>Item: <%= donation.itemType %>
+                    <br>Descrição: <%= donation.description %>
+                    <br> Doador: <%= donation.donator %>
+                </li>
             <%
             }); %>
         </ul>

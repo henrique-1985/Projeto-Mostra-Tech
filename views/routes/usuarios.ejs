@@ -14,8 +14,10 @@
         <h1>Usuarios</h1>
         <ul>
             <% users.forEach(user => { %>
-                <li><strong>User: <%= user.name %> </strong></li>
-                <li>Email: <%= user.email %></li>
+                <li>User:<strong><%= user.name %> </strong>
+                    <br>Email: <%= user.email %>
+                    <br> Tipo de Usuário: <%= user.isONG ? 'ONG' : 'Doador' %>
+                </li>
                 <br>
             <%
             }); %>
