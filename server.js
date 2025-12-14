@@ -38,6 +38,7 @@ Models
 
 //User (Cadastro)
 
+
 app.post('/cadastro', async function (req, res) {
     try {
         await User.create({
@@ -122,8 +123,7 @@ app.get('/doacoes-teste', async (req, res) => {
 //Página Itens
 
 app.get('/doacoes',  (req, res) => {
-    
-   res.sendFile(__dirname + '/views/routes/doacoes.html');
+    res.sendFile(__dirname + '/views/routes/doacoes.html');
 
 });
 
@@ -147,7 +147,8 @@ app.post('/login', async (req, res) =>{
         if (!isMatch) {
             return res.status(400).send('Senha incorreta');
         }
-        const token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
+        var token = jwt.sign({ id: user.id }, 'secret_token', { expiresIn: '1h' });
+        return res.ok(token);
         res.redirect('/doacoes');
         console.log('Login realizado com sucesso');
         //res.status(200).json({'Login realizado com sucesso': token});
