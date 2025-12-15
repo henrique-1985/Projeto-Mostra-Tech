@@ -33,7 +33,7 @@
                         <p class="descricao-item">" <%= donation.description %> "</p>
                         <span class="linha-doador">
                             <p class="nome-doador"><%= donation.donator %></p>
-                            <button class="botao-saber">Saber Mais</button>
+                            <button class="botao-resgatar" id="btn-resgatar">Resgatar</button>
                         </span>
                     </div>
                 </li>
@@ -46,7 +46,17 @@
             <a href="/cadastrar-doacao">Adicionar uma doação</a>
         </button>
 
-        <div id="ong">Tela pra ONG</div> 
+        <div class="popup" id="popup-resgatar">
+            <div class="popup-conteudo">
+                <i class='bx  bx-message-circle-question-mark' id="popup-icone"></i> 
+                <p id="popup-txt">Deseja resgatar esse item?</p>
+                <div class="popup-btn">
+                    <button id="btn-confirmar">Confirmar</button>
+                    <button id="btn-cancelar">Cancelar</button>
+                </div>
+                <button id="btn-fechar" style="display: none;">Fechar</button>
+            </div>
+        </div>
 
         <script src="../scripts/doacoes-script.js"></script>
     </body>
