@@ -11,20 +11,44 @@
     </head>
     <body>
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
-        <h1>Doações</h1>
-        <ul>
-            <% donations.forEach(donation => { %>
-                <li>Item: <%= donation.itemType %>
-                    <br> imagem: 
-                    <br><img src="/upload/<%=donation.imageName%>" alt= "Imagem" widht="50">
-                    <br>Descrição: <%= donation.description %>
-                    <br> Doador: <%= donation.donator %>
-                    <br> Condição: <%= donation.condition %>
-    
+
+         <section class="banner">
+            <div class="texto-banner">
+                <h1>Faça o bem agora</h1>
+                <p>Visualize e resgata as doações disponíveis abaixo, ou faça a sua!</p>
+            </div>
+        </section>
+
+        <h1 class="ttl-doacoes">Doações</h1>
+        <div class="catalogo" id="catalogo">
+            <ul class="lista-itens">
+                <% donations.forEach(donation => { %>
+                <li class="item">
+                    <div class="imagem-doacao">
+                        <img src="/upload/<%=donation.imageName%>" alt="Imagem da Doação">
+                    </div>
+                    <div class="info-item">
+                        <h3 class="nome-item"><%= donation.itemType %></h3>
+                        <p class="descricao-item"><%= donation.condition %></p>
+                        <p class="descricao-item"><%= donation.description %></p>
+                        <span class="linha-doador">
+                            <p class="nome-doador"><%= donation.donator %></p>
+                            <button class="botao-saber">Saber Mais</button>
+                        </span>
+                    </div>
                 </li>
-            <%
-            }); %>
-        </ul>
+                <%
+                }); %>
+            </ul>
+        </div>
+
+        <button class="btn-adicionar" id="btn-adicionar">
+            <a href="/cadastrar-doacao">Adicionar uma doação</a>
+        </button>
+
+        <div id="ong">Tela pra ONG</div> 
+
+        <script src="../scripts/doacoes-script.js"></script>
     </body>
     
 </html>
