@@ -4,10 +4,10 @@
 ## Alunos
 
 * Caroline Vitória Vieira de Abreu
-* Miguel
+* José Miguel de Almeida Ferreira
 * Thiago Henrique de Nascimento Assis
-* Thiago Reis
-* Rodrigo Wollemberg
+* Thiago Reis Diniz da Silva
+* Rodrigo Wollenberg de Souza Ramos
 
 ## Tecnologias utilizadas
 
@@ -67,20 +67,19 @@
     npm install bcrypt
 
 ```
-### 6. jsonwebtoken
-
-* Instalar o jsonwebtoken para o login de usuários:
-
-```bash
-    npm install jsonwebtoken
-
-```
-### 7. Ejs
+### 6. Ejs
 
 * Instalar o Ejs:
 
 ```bash
     npm install ejs
+```
+### 7. Express FileUpload
+
+* Instalar o Express FileUpload:
+
+```bash
+    npm install express-fileupload
 ```
 
 ### 8. Banco de Dados (MySQL)

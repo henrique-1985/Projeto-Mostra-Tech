@@ -2,8 +2,7 @@
 const express = require('express');
 const app = express();
 const port = 8081;
-
-const jwt = require('jsonwebtoken');
+const fileupload = require('express-fileupload');
 const bcrypt = require('bcrypt');
 
 const db = require('./models/db');
@@ -15,9 +14,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(fileupload());
+
 // Tornando as pastas estáticas (para conectar os arquivos)
 app.use(express.static('views'));
 app.use(express.static('models'));
+app.use(express.static('upload'));
 
 app.set('view engine', 'ejs');
 
@@ -63,10 +65,12 @@ app.post('/donate', async function (req, res) {
         await Donation.create({
             itemType:req.body.itemType,
             description:req.body.description,
-            donator:req.body.donator
+            donator:req.body.donator,
+            condition:req.body.condition,
+            imageName:req.files.image.name,
+            image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
         });
         res.redirect('/doacoes');
-        window.alert("Item cadastrado com sucesso!");
     } catch (error) {
         res.send("Erro ao cadastrar item: " + error);
     }

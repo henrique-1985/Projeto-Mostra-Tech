@@ -15,8 +15,12 @@
         <ul>
             <% donations.forEach(donation => { %>
                 <li>Item: <%= donation.itemType %>
+                    <br> imagem: 
+                    <br><img src="/upload/<%=donation.imageName%>" alt= "Imagem" widht="50">
                     <br>Descrição: <%= donation.description %>
                     <br> Doador: <%= donation.donator %>
+                    <br> Condição: <%= donation.condition %>
+    
                 </li>
             <%
             }); %>

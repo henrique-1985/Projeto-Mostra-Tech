@@ -13,20 +13,21 @@ const Donation = db.sequelize.define('donation', {
     donator: {
         type: db.Sequelize.STRING,
         allowNull: false
+    },
+    condition:{
+        type: db.Sequelize.STRING,
+        allowNull: true
+    },
+
+    imageName:{
+        type: db.Sequelize.BLOB('long'),
+        allowNull: true
+    },
+    image: {
+        type: db.Sequelize.BLOB('long'),
+        allowNull: true
     }
 });
-
-/*
-Donation.create({
-    itemType: 'Roupas',
-    description: 'Camisas e calças em bom estado',
-    donator:  'João Silva'
-}).then(() => {
-    console.log('Item de doação criado com sucesso!');
-}).catch((error) => {
-    console.error('Erro ao criar item de doação:', error);
-});
-*/
 
 
 //Donation.sync({force:true}); //Descomente esta linha para criar a tabela no banco de dados, depois comente novamente
