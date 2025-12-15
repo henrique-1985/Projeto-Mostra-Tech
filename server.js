@@ -58,7 +58,7 @@ app.post('/cadastro', async function (req, res) {
 });
 
 
-//Donation (caadastro de items)
+//Donation (cadastro de items)
 
 app.post('/donate', async function (req, res) {
     try {
@@ -76,6 +76,19 @@ app.post('/donate', async function (req, res) {
     }
 });
 
+//Resgate de doação
+
+app.get('/resgatar/:id', async (req, res) => {
+    Donation.destroy({
+        where: {
+            id: req.params.id}
+    }).then(() => {
+        res.send("Doação resgatada com sucesso!");
+        res.redirect('/doacoes');
+    }).catch(function(error){
+        res.send("Erro ao resgatar doação: " + error);
+    });
+});
 /*
 Routes
 */
@@ -111,7 +124,7 @@ app.get('/usuarios', async (req, res) => {
    
 });
 
-//doacoes
+//Página doações
 
 app.get('/doacoes', async (req, res) => {
     try{
@@ -123,8 +136,6 @@ app.get('/doacoes', async (req, res) => {
 
    
 });
-
-//Página Itens
 
 
 //Página de Cadastro de Itens
