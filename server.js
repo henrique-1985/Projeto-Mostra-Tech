@@ -111,9 +111,9 @@ app.get('/usuarios', async (req, res) => {
    
 });
 
-//doacoes teste
+//doacoes
 
-app.get('/doacoes-teste', async (req, res) => {
+app.get('/doacoes', async (req, res) => {
     try{
         const donations =  await Donation.findAll();
         res.render('routes/doacoes_teste.ejs', { donations });
@@ -126,25 +126,6 @@ app.get('/doacoes-teste', async (req, res) => {
 
 //Página Itens
 
-app.get('/doacoes',  (req, res) => {
-    
-    res.sendFile(__dirname + '/views/routes/doacoes.html');
-    
-});
-/* Descomentar assim que a nova doacoes.ejs estiver criada e estruturada
-
-app.get('/doacoes', async (req, res) => {
-    try{
-        const donations =  await Donation.findAll();
-        res.render('routes/doacoes.ejs', { donations });
-    } catch (error){
-        res.send("Erro ao listar doações: " + error);
-    }
-
-   
-});
-
-*/
 
 //Página de Cadastro de Itens
 
