@@ -538,7 +538,7 @@ nav{
 
 /* CSS da página de cadastro */
 
-.body-cadastro{
+.body-cadastro, .body-sobre {
     background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
@@ -838,13 +838,12 @@ nav{
 
 .sobre-container {
     padding: 120px 5% 80px;
-    background-color: #f8f9fa;
 }
 
 .sobre-content {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     padding: 60px;
     border-radius: 18px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
