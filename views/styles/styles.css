@@ -495,6 +495,10 @@ nav{
     box-shadow: 0 4px 12px rgba(106, 163, 221, 0.3);
 }
 
+#btn-fechar {
+    display: none;
+}
+
 /* Responsividade */
 
 @media (max-width: 768px) {
