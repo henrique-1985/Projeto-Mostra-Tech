@@ -63,6 +63,7 @@ app.post('/cadastro', async function (req, res) {
 app.post('/donate', async function (req, res) {
     try {
         await Donation.create({
+            id: req.body.id,
             itemType:req.body.itemType,
             description:req.body.description,
             donator:req.body.donator,
@@ -83,7 +84,6 @@ app.get('/resgatar/:id', async (req, res) => {
         where: {
             id: req.params.id}
     }).then(() => {
-        res.send("Doação resgatada com sucesso!");
         res.redirect('/doacoes');
     }).catch(function(error){
         res.send("Erro ao resgatar doação: " + error);
@@ -129,7 +129,11 @@ app.get('/usuarios', async (req, res) => {
 app.get('/doacoes', async (req, res) => {
     try{
         const donations =  await Donation.findAll();
-        res.render('routes/doacoes_teste.ejs', { donations });
+        if (donations===null) {
+            res.render('routes/doacoes_teste.ejs', { donations: [] });
+        } else {
+            res.render('routes/doacoes_teste.ejs', { donations });
+        }
     } catch (error){
         res.send("Erro ao listar doações: " + error);
     }

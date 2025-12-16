@@ -51,8 +51,11 @@
                 <i class='bx  bx-message-circle-question-mark' id="popup-icone"></i> 
                 <p id="popup-txt">Deseja resgatar esse item?</p>
                 <div class="popup-btn">
-                    <button id="btn-confirmar">Confirmar</button>
-                    <button id="btn-cancelar">Cancelar</button>
+                    <% donations.forEach(donation => { %>
+                        <a id="btn-confirmar" href="/resgatar/<%=donation.id%>" >Confirmar</a>
+                        <button id="btn-cancelar">Cancelar</button>
+                    <%
+                    }); %>
                 </div>
                 <button id="btn-fechar">Fechar</button>
             </div>

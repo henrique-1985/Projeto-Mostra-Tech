@@ -2,6 +2,12 @@ const db= require('./db');
 
 const Donation = db.sequelize.define('donation', {
 
+    id:{
+        type: db.Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
     itemType: { 
         type: db.Sequelize.STRING, 
         allowNull: false
