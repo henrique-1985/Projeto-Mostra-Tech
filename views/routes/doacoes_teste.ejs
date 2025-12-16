@@ -52,7 +52,7 @@
                 <p id="popup-txt">Deseja resgatar esse item?</p>
                 <div class="popup-btn">
                     <% donations.forEach(donation => { %>
-                        <a id="btn-confirmar" href="/resgatar/<%=donation.id%>" >Confirmar</a>
+                        <button id="btn-confirmar"><a id="confirmar" href="/resgatar/<%=donation.id%>" >Confirmar</a></button>
                         <button id="btn-cancelar">Cancelar</button>
                     <%
                     }); %>
@@ -62,6 +62,7 @@
         </div>
 
         <script src="../scripts/doacoes-script.js"></script>
+        <footer>ShareSpot - Mostra Tech UNINASSAU 2025</footer>
     </body>
     
 </html>
