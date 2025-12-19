@@ -546,7 +546,7 @@ nav{
 
 /* CSS da página de cadastro */
 
-.body-cadastro, .body-sobre {
+.body-cadastro {
     background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
@@ -858,6 +858,10 @@ nav{
 /* ============================= */
 /* Página Sobre – Estilo Institucional */
 /* ============================= */
+
+.body-sobre {
+    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+}
 
 .sobre-container {
     padding: 120px 5% 80px;
