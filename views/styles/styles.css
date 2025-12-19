@@ -548,17 +548,19 @@ nav{
 
 .body-cadastro, .body-sobre {
     background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    position: relative;
 }
 
 .container-form-cadastro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     width: 450px;
     height: 550px;
-    margin-top: 45px;
+    margin-top: 10px;
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     overflow: hidden;
