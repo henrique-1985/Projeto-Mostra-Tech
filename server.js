@@ -71,7 +71,7 @@ app.post('/donate', async function (req, res) {
             imageName:req.files.image.name,
             image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
         });
-        res.redirect('/doacoes');
+        res.redirect('/doacoes#ong');
     } catch (error) {
         res.send("Erro ao cadastrar item: " + error);
     }
@@ -84,7 +84,7 @@ app.get('/resgatar/:id', async (req, res) => {
         where: {
             id: req.params.id}
     }).then(() => {
-        res.redirect('/doacoes');
+        res.redirect('/doacoes#ong');
     }).catch(function(error){
         res.send("Erro ao resgatar doação: " + error);
     });
