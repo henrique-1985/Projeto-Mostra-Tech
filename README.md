@@ -1,6 +1,4 @@
-# Projeto Mostra Tech
-
-#Protótipo: ShareSpot
+# Projeto Mostra Tech: ShareSpot
 
 ## Alunos
 
