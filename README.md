@@ -30,8 +30,11 @@
 
 * ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-* ![bcrypt.js Banner](https://prod-files-secure.s3.us-west-2.amazonaws.com/...) 
+* bcript.js
 
+* Express File Upload
+
+* Ejs
 
 ## Instalações
 
