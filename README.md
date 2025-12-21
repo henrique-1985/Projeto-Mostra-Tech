@@ -1,5 +1,6 @@
 # Projeto Mostra Tech
 
+#Protótipo: ShareSpot
 
 ## Alunos
 
@@ -28,6 +29,8 @@
 * ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white)
 
 * ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+
+* ![bcrypt.js Banner](https://prod-files-secure.s3.us-west-2.amazonaws.com/...) 
 
 
 ## Instalações
