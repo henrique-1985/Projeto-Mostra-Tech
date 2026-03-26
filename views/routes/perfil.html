@@ -9,7 +9,52 @@
         <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
         <script src="../scripts/barra-nav-script.js"></script>
     </head>
-    <body>
+    <body class="body-perfil">
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
+
+        <div class="container-form-perfil">
+            <form class="caixa-editar">    
+                <span class="titulo-form">Minhas Informações</span>
+                <div class="inputs-form">
+                    <div class="tipo-usuario-linha">
+                        <label >Tipo de Usuário:</label>
+                        <p id="tipo-usuario-texto">Teste</p>
+                    </div>
+                    <div class="caixa-input">
+                        <input type="text" name="name" class="inputs campo-input" placeholder="Insira seu novo nome">
+                        <i class='bx  bx-user'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu novo email">
+                        <i class='bx  bx-envelope'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="number" name="phone" class="inputs campo-input" placeholder="Insira seu novo telefone">
+                        <i class='bx  bx-phone'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma nova senha">
+                        <i class='bx  bx-lock'></i> 
+                    </div>
+                    <button type="submit" class="inputs botao-entrar">Alterar Informações</button>
+                    <div class="btn-apagar">
+                        <p class="">Apagar Conta</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script> // Script para preencher o formulário com os dados do usuário logado
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+                const form = document.querySelector(".caixa-editar");
+
+                form.name.value = user.name;
+                form.email.value = user.email;
+                form.phone.value = user.phone;
+
+                const tipoUsuarioTexto = document.getElementById("tipo-usuario-texto");
+                tipoUsuarioTexto.textContent = user.isONG ? "ONG" : "Doador";
+            });
+        </script>
     </body>
 </html>

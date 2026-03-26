@@ -180,7 +180,7 @@ app.post('/login', async (req, res) =>{
         });
 
     } catch (error) {
-        res.status(500).send('Erro no servidor: ' + error);
+        res.status(500).send('Erro ao fazer login: ' + error);
     }   
 });
 

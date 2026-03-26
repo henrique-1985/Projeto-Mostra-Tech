@@ -550,7 +550,7 @@ nav{
 
 /* CSS da página de cadastro */
 
-.body-cadastro {
+.body-cadastro, .body-perfil {
     background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
@@ -559,7 +559,7 @@ nav{
     height: 100vh;
 }
 
-.container-form-cadastro {
+.container-form-cadastro{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -766,6 +766,45 @@ nav{
     transform: translateY(-50%);
     width: 17px;
     height: 17px;
+}
+
+/* Estilos para página de perfil */
+
+.container-form-perfil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 450px;
+    height: 550px;
+    margin-top: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    
+}
+
+.caixa-editar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.tipo-usuario-linha {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.tipo-usuario-linha label {
+    font-weight: 600;
+    color: #555;
 }
 
 /* Ajustes para textarea e select em formulários com a mesma aparência */
