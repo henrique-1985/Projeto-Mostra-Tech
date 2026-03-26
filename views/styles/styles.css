@@ -557,6 +557,7 @@ nav{
     align-items: center;
     position: relative;
     height: 100vh;
+    padding:20px;
 }
 
 .container-form-cadastro{
@@ -566,7 +567,7 @@ nav{
     transform: translate(-50%, -50%);
     display: flex;
     width: 450px;
-    height: 550px;
+    height: 600px;
     margin-top: 45px;
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;

@@ -13,13 +13,16 @@
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
 
         <div class="container-form-perfil">
-            <form class="caixa-editar">    
+            <form class="caixa-editar" method="POST" action="/update-cadastro";
                 <span class="titulo-form">Minhas Informações</span>
                 <div class="inputs-form">
-                    <div class="tipo-usuario-linha">
+                    
+                    <div class="tipo-usuario-linha" >
                         <label >Tipo de Usuário:</label>
                         <p id="tipo-usuario-texto">Teste</p>
                     </div>
+                    <input type="hidden" name="token" id="tokenField">
+                    <input type="hidden" name="id" id="idField">
                     <div class="caixa-input">
                         <input type="text" name="name" class="inputs campo-input" placeholder="Insira seu novo nome">
                         <i class='bx  bx-user'></i> 
@@ -29,14 +32,14 @@
                         <i class='bx  bx-envelope'></i> 
                     </div>
                     <div class="caixa-input">
-                        <input type="number" name="phone" class="inputs campo-input" placeholder="Insira seu novo telefone">
+                        <input type="tel" name="phone" class="inputs campo-input" placeholder="Insira seu novo telefone">
                         <i class='bx  bx-phone'></i> 
                     </div>
                     <div class="caixa-input">
                         <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma nova senha">
                         <i class='bx  bx-lock'></i> 
                     </div>
-                    <button type="submit" class="inputs botao-entrar">Alterar Informações</button>
+                    <button type="submit" class="inputs botao-entrar" >Alterar Informações</button>
                     <div class="btn-apagar">
                         <p class="">Apagar Conta</p>
                     </div>
@@ -51,10 +54,13 @@
                 form.name.value = user.name;
                 form.email.value = user.email;
                 form.phone.value = user.phone;
+                document.getElementById("tokenField").value = localStorage.getItem("token");
+                document.getElementById("idField").value = user.id;
 
                 const tipoUsuarioTexto = document.getElementById("tipo-usuario-texto");
                 tipoUsuarioTexto.textContent = user.isONG ? "ONG" : "Doador";
             });
+        
         </script>
     </body>
 </html>
