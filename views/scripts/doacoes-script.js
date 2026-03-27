@@ -33,10 +33,22 @@ botoesFechar.forEach(botao => {
 window.addEventListener("DOMContentLoaded", () => {
   const isOng = window.location.hash === "#ong";
   const mostrarBotao = document.querySelectorAll(".botao-resgatar");
+  const esconderBotao = document.querySelectorAll(".btn-adicionar");
 
   if (isOng) {
     mostrarBotao.forEach(botao => {
       botao.style.display = "block";
     });
+    esconderBotao.forEach(botao => {
+      botao.style.display = "none";
+    });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => { //Script para redirecionar para a seção de ONG se o usuário for ONG
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user && user.isONG) {
+        window.location.hash = "ong";
+    }
 });

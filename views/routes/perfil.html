@@ -13,8 +13,8 @@
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
 
         <div class="container-form-perfil">
-            <form class="caixa-editar" method="POST" action="/update-cadastro";
-                <span class="titulo-form">Minhas Informações</span>
+            <form class="caixa-editar" method="POST" action="/update-cadastro">
+                <h1 class="titulo-form">Minhas Informações</h1>
                 <div class="inputs-form">
                     
                     <div class="tipo-usuario-linha" >
@@ -32,7 +32,7 @@
                         <i class='bx  bx-envelope'></i> 
                     </div>
                     <div class="caixa-input">
-                        <input type="tel" name="phone" class="inputs campo-input" placeholder="Insira seu novo telefone">
+                        <input type="tel" name="phone" id="telefoneInput" class="inputs campo-input" placeholder="Insira seu novo telefone">
                         <i class='bx  bx-phone'></i> 
                     </div>
                     <div class="caixa-input">
@@ -53,7 +53,8 @@
 
                 form.name.value = user.name;
                 form.email.value = user.email;
-                form.phone.value = user.phone;
+                form.password.value = user.password; //Só será preenchida para fins de demonstração, não deve ser usada em produção.
+                document.getElementById("telefoneInput").value = user.phone;
                 document.getElementById("tokenField").value = localStorage.getItem("token");
                 document.getElementById("idField").value = user.id;
 

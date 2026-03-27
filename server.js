@@ -52,6 +52,7 @@ Models
 
 app.post('/cadastro', async function (req, res) {
     try {
+        const isONG = req.body.isONG === "on" || req.body.isONG === "true";
         await User.create({
             id:req.body.id,
             name:req.body.name,
@@ -83,7 +84,7 @@ app.post('/donate', async function (req, res) {
             imageName:req.files.image.name,
             image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
         });
-        if (req.body.isONG === 'true') {
+         if (user.isONG) {
             res.redirect('/doacoes#ong');
         } else {
             res.redirect('/doacoes');
@@ -183,7 +184,7 @@ app.post('/login', async (req, res) =>{
 
         res.json({ // Retornar o token e as informações do usuário para o frontend
             token,
-            user: { id: user.id, name: user.name, isONG: user.isONG, email: user.email }
+            user: { id: user.id, name: user.name, phone: user.phone, isONG: user.isONG, email: user.email }
         });
 
     } catch (error) {
@@ -219,20 +220,22 @@ app.post('/update-cadastro', autenticarToken, async (req, res) => {
         if (req.body.id != req.userId) {
         return res.status(403).send('> Acesso negado! > Usuário não verificado ou token expirado!');
         }
+        const hash = await bcrypt.hash(req.body.password, 10);
+
         await User.update({
-            name:req.body.name,
-            email:req.body.email,
-            phone:req.body.phone,
-            password:req.body.password,
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            password: hash,
         }, {
             where: { id: req.userId }
         });
+
         return res.redirect('/');
-           
+
     } catch(error){
         return res.send("> Erro ao atualizar usuário: " + error);
     }
-    
 });
    
 
