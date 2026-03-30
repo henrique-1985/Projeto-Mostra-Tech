@@ -454,8 +454,9 @@ nav{
 }
 
 /* Estilos da caixa de confirmação de resgate */
+
 .popup {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 50;
     top: 0;
@@ -463,13 +464,18 @@ nav{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden; /* uso de visibility pois ao contrário do display:none , ele permite transições */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.aberto { /* classe alterada pelo .js */
+    opacity: 1;
+    visibility: visible;
 }
 
 .popup-conteudo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto; 
     height: 300px;
     width: 450px;
     background: white;
@@ -480,6 +486,12 @@ nav{
     align-items: center;  
     border-radius: 30px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8); /* uso de scale pois ele permite aumentar o elemento sem alterar o tamanho original ou elementos adjacentes */
+    transition: transform 0.3s ease;
+}
+
+.popup.aberto .popup-conteudo {
+    transform: scale(1);
 }
 
 .popup-conteudo i {
@@ -601,6 +613,7 @@ nav{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: -20px;
 }
 
 .logo-form img {
@@ -678,6 +691,23 @@ nav{
 
 .transicao-form span:hover {
     color: #348754;
+}
+
+.botao-apagar {
+    display: block;
+    margin: 20px auto 0;
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: ease .3s;
+}
+
+.botao-apagar:hover {
+    color: #e32b2b;
+    cursor: pointer;
+    font-size: 1rem;
+
 }
 
 /* Estilos apenas para o formulário de doação (não afetam o formulário de cadastro) */
@@ -917,6 +947,7 @@ nav{
     background: rgba(0, 0, 0, 0.2);
     transform: none;
 
+}
 }
 
 /* ============================= */

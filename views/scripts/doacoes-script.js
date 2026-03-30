@@ -10,7 +10,7 @@ const botoesFechar = [cancelarResgate, fecharPopup];
 
 //Função para acionar a caixa de confirmação
 resgatarDoacao.addEventListener("click", () => {
-    caixaPopup.style.display = 'block';
+    caixaPopup.classList.add("aberto");
 });
 
 //Função para confirmar o resgate, muda o texto, o ícone e os botões
@@ -25,7 +25,7 @@ confirmarResgate.addEventListener("click", () => {
 //Função para fechar a caixa ao clicar nos botões de cancelar ou fechar
 botoesFechar.forEach(botao => {
   botao.addEventListener("click", () => {
-    caixaPopup.style.display = 'none';
+    caixaPopup.classList.remove("aberto")
   });
 });
 

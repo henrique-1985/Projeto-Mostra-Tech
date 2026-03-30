@@ -10,7 +10,7 @@ const botoesFecharDeletar = [cancelarDeletar, fecharPopupDeletar];
 
 //Função para acionar a caixa de confirmação de apagar conta
 apagarConta.addEventListener("click", () => {
-    caixaDeletar.style.display = 'block';
+    caixaDeletar.classList.add("aberto");
 });
 
 //Função para confirmar o apagar, muda o texto, o ícone e os botões
@@ -25,6 +25,6 @@ confirmarDeletar.addEventListener("click", () => {
 //Função para fechar a caixa ao clicar nos botões de cancelar ou fechar
 botoesFecharDeletar.forEach(botao => {
   botao.addEventListener("click", () => {
-    caixaDeletar.style.display = 'none';
+    caixaDeletar.classList.remove("aberto")
   });
 });
