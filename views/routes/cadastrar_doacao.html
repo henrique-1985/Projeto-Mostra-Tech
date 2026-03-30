@@ -44,19 +44,21 @@
                         </div>
 
                         <div class="caixa-input">
-                            <input type="text" name="donator" class="inputs campo-input" placeholder="Nome do doador" required>
+                            <input type="text" id="input-nome-doador" name="donator" class="inputs campo-input" placeholder="Nome do doador" readonly>
                             <i class='bx bx-user'></i>
                         </div>
 
                         <div class="caixa-input">
-                            <input type="email" name="email" class="inputs campo-input" placeholder="Email do doador" required>
+                            <input type="email" id="input-email-doador" name="email" class="inputs campo-input" placeholder="Email do doador" readonly>
                             <i class='bx bx-envelope'></i>
                         </div>
                         
                         <div class="caixa-input">
-                            <input type="tel" name="phone" class="inputs campo-input" placeholder="Telefone do doador" required>
+                            <input type="tel" name="phone" id="input-telefone-doador" class="inputs campo-input" placeholder="Telefone do doador" readonly>
                             <i class='bx bx-phone'></i>
                         </div>                        
+                        
+                        <input type="hidden" name="token" id="input-token"> <!-- Campo oculto para armazenar o token de autenticação -->
 
                         <div class="caixa-input">
                             <button type="submit" class="inputs botao-entrar">
@@ -68,7 +70,22 @@
 
             </div>
         </div>
-        
-        
+        <script>
+        //Script para preencher os campos de informações automaticamente com os dados do usuário logado e para preencher o campo de token para enviar para o backend
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("token");
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            const inputToken = document.getElementById("input-token");
+            const inputNome = document.getElementById("input-nome-doador");
+            const inputEmail = document.getElementById("input-email-doador");
+            const inputTel = document.getElementById("input-telefone-doador");
+            
+            inputToken.value = token;
+            inputNome.value = user.name;
+            inputEmail.value = user.email;
+            inputTel.value = user.phone;
+        });
+        </script>
     </body>
 </html>

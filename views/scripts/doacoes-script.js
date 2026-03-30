@@ -29,26 +29,21 @@ botoesFechar.forEach(botao => {
   });
 });
 
-//Script para alterar o que é exibido na página de doações se for ONG ou não
-window.addEventListener("DOMContentLoaded", () => {
-  const isOng = window.location.hash === "#ong";
-  const mostrarBotao = document.querySelectorAll(".botao-resgatar");
-  const esconderBotao = document.querySelectorAll(".btn-adicionar");
-
-  if (isOng) {
-    mostrarBotao.forEach(botao => {
-      botao.style.display = "block";
-    });
-    esconderBotao.forEach(botao => {
-      botao.style.display = "none";
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => { //Script para redirecionar para a seção de ONG se o usuário for ONG
+//Script que altera a visibilidade dos botões de resgatar e adicionar doações dependendo do tipo de usuário
+document.addEventListener("DOMContentLoaded", () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const resgatarDoacao = document.querySelectorAll(".botao-resgatar");
+    const adicionarDoacao = document.querySelectorAll(".btn-adicionar");
 
-    if (user && user.isONG) {
-        window.location.hash = "ong";
+    resgatarDoacao.forEach(botao => botao.style.display = "none");
+    adicionarDoacao.forEach(botao => botao.style.display = "none");
+
+    if (user) {
+        if (user.isONG) {
+            window.location.hash = "ong";
+            resgatarDoacao.forEach(botao => botao.style.display = "block");
+        } else {
+            adicionarDoacao.forEach(botao => botao.style.display = "block");
+        }
     }
 });

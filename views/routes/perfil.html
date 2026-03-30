@@ -40,12 +40,24 @@
                         <i class='bx  bx-lock'></i> 
                     </div>
                     <button type="submit" class="inputs botao-entrar" >Alterar Informações</button>
-                    <div class="btn-apagar">
-                        <p class="">Apagar Conta</p>
-                    </div>
+                    <button class="botao-apagar" id="btn-deletar" type="button">Apagar Conta</button>
                 </div>
             </form>
         </div>
+
+        <div class="popup" id="popup-deletar">
+            <div class="popup-conteudo">
+                <i class='bx  bx-message-circle-question-mark' id="popup-icone-deletar"></i> 
+                <p id="popup-txt-deletar">Deseja apagar sua conta?</p>
+                <div class="popup-btn">
+                    <button id="btn-confirmar-deletar">Confirmar</button>
+                    <button id="btn-cancelar-deletar">Cancelar</button>
+                </div>
+                <button class="botao-fechar" id="btn-fechar-deletar">Fechar</button>
+            </div>
+        </div>
+
+        <script src="../scripts/perfil-scripts.js"></script>
         <script> // Script para preencher o formulário com os dados do usuário logado
             document.addEventListener("DOMContentLoaded", () => {
                 const user = JSON.parse(localStorage.getItem("user"));
@@ -61,7 +73,20 @@
                 const tipoUsuarioTexto = document.getElementById("tipo-usuario-texto");
                 tipoUsuarioTexto.textContent = user.isONG ? "ONG" : "Doador";
             });
-        
+
+            // Script para apagar a conta do usuário
+            document.getElementById('btn-confirmar-deletar').addEventListener('click', () => {
+                fetch('/deletar-cadastro', {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                        }
+                    }).then(() => {
+                        localStorage.removeItem('user');
+                        localStorage.removeItem('token');
+                        window.location.href = '/';
+                    });
+                });
         </script>
     </body>
 </html>

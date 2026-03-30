@@ -14,17 +14,23 @@ function atualizarNavbar() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if(user){ // Se o usuário estiver logado, exibe o nome e o botão de sair
-        linkCadastro.innerText = "Olá, " + user.name;
+        if (window.innerWidth <= 768) { // Para telas menores, exibe apenas "meu perfil"
+            linkCadastro.innerText = "Meu Perfil";
+        } else {
+            linkCadastro.innerText = "Olá, " + user.name;
+        }
+
         linkCadastro.href = "../routes/perfil.html";
 
-        botaoSair.style.display = "inline-block";
+        botaoSair.style.display = "inline-block"; // Exibe o botão de sair
         botaoSair.addEventListener("click", () => {
             localStorage.removeItem("token");
             localStorage.removeItem("user");
             window.location.href = "/";
         });
+
     } else {
-        botaoSair.style.display = "none";
+        botaoSair.style.display = "none"; // Esconde o botão de sair
     }
 
     // Menu do ícone

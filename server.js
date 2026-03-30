@@ -71,24 +71,23 @@ app.post('/cadastro', async function (req, res) {
 
 //Donation (cadastro de items)
 
-app.post('/donate', async function (req, res) {
+app.post('/donate', autenticarToken, async function (req, res) {
     try {
+        const user = await User.findByPk(req.userId);        
         await Donation.create({
             id: req.body.id,
             itemType:req.body.itemType,
             description:req.body.description,
-            donator:req.body.donator,
-            donatorEmail:req.body.email,
-            donatorPhone:req.body.phone,
+            donator:user.name,
+            donatorEmail:user.email,
+            donatorPhone:user.phone,
             condition:req.body.condition,
             imageName:req.files.image.name,
             image:req.files.image.mv(__dirname + '/views/upload/' + req.files.image.name)
         });
-         if (user.isONG) {
-            res.redirect('/doacoes#ong');
-        } else {
+
             res.redirect('/doacoes');
-        }
+            
     } catch (error) {
         res.send("> Erro ao cadastrar item: " + error);
     }
@@ -238,7 +237,17 @@ app.post('/update-cadastro', autenticarToken, async (req, res) => {
     }
 });
    
-
+// Deletar
+app.delete('/deletar-cadastro', autenticarToken, async (req, res) => {
+    try {
+        await User.destroy({
+            where: { id: req.userId }
+        });
+        return res.json({ message: '> Sua conta foi deletada.' });
+    } catch (error) {
+        return res.send("> Erro ao deletar conta: " + error);
+    }
+});
 
 //Funções de Token
 

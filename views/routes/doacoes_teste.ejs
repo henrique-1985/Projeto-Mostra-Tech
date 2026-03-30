@@ -33,6 +33,8 @@
                         <p class="descricao-item">" <%= donation.description %> "</p>
                         <span class="linha-doador">
                             <p class="nome-doador"><%= donation.donator %></p>
+                            <!-- <p class="email-doador"><%= donation.donatorEmail %></p> -->
+                            <p class="telefone-doador">Número: <%= donation.donatorPhone %></p>
                             <button class="botao-resgatar" id="btn-resgatar">Resgatar</button>
                         </span>
                     </div>
@@ -57,7 +59,7 @@
                     <%
                     }); %>
                 </div>
-                <button id="btn-fechar">Fechar</button>
+                <button class="botao-fechar" id="btn-fechar">Fechar</button>
             </div>
         </div>
 

@@ -64,6 +64,7 @@ nav{
 .paginas-nav{
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .paginas-nav a {
@@ -79,6 +80,19 @@ nav{
 
 .botao-sair {
     display: none;
+    background: white;
+    color: #000000;
+    padding: 8px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: ease 0.3s;
+    margin: 0;
+}
+
+.botao-sair:hover {
+    color: #e32b2b;
+    transform: translateY(-4px);
 }
 
 #icone-menu{
@@ -390,9 +404,10 @@ nav{
 }
 
 .linha-doador {
+    flex-direction: column;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 15px;
     padding-top: 15px;
     border-top: 1px solid #e0e0e0;
@@ -472,20 +487,20 @@ nav{
     margin-top: -10px;
 }
 
-#popup-txt {
+#popup-txt, #popup-txt-deletar {
     font-weight: 600;
     font-size: 30px;
     margin: 15px 0 20px 0;
 }
 
-#confirmar {
+#confirmar, #btn-confirmar-deletar {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     color: white;
 }
 
-.popup-btn button, #btn-confirmar, #btn-fechar{
+.popup-btn button, #btn-confirmar, .botao-fechar{
     
     padding: 10px 24px;
     border-radius: 25px;
@@ -506,7 +521,7 @@ nav{
     box-shadow: 0 4px 12px rgba(106, 163, 221, 0.3);
 }
 
-#btn-fechar {
+.botao-fechar {
     display: none;
 }
 
@@ -525,8 +540,6 @@ nav{
     }
 
     .linha-doador {
-        flex-direction: column;
-        align-items: stretch;
         gap: 10px;
     }
 
@@ -880,22 +893,29 @@ nav{
     backdrop-filter: blur(4px);
 }
 
+.paginas-nav li {
+    width: 100%;
+}
+
 .paginas-nav.aberto {
     max-height: 300px;
 }
 
-.paginas-nav a {
+.paginas-nav a, .botao-sair {
     display: block;
     padding: 1rem;
     color: black;
     transition: ease 0.4s;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
 
-.paginas-nav a:hover {
+.paginas-nav a:hover, .botao-sair:hover {
     color: black;
     background: rgba(0, 0, 0, 0.2);
-
-}
+    transform: none;
 
 }
 
