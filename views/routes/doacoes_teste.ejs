@@ -64,6 +64,24 @@
         </div>
 
         <script src="../scripts/doacoes-script.js"></script>
+        
+        <script> //Script que altera a visibilidade dos botões de resgatar e adicionar doações dependendo do tipo de usuário
+        document.addEventListener("DOMContentLoaded", () => {
+            const user = JSON.parse(localStorage.getItem("user"));
+            const adicionarDoacao = document.getElementById("btn-adicionar");
+            const resgatarDoacao = document.querySelectorAll(".botao-resgatar");
+
+            if (user && !user.isONG) {
+                adicionarDoacao.style.display = "block";
+            }
+            if ( user && user.isONG) {
+                resgatarDoacao.forEach(btn => {
+                    btn.style.display = "block";
+                });
+            }
+        });
+        </script>
+
         <footer>ShareSpot - Mostra Tech UNINASSAU 2025</footer>
     </body>
 </html>
