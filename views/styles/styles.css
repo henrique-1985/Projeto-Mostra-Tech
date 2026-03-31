@@ -21,18 +21,18 @@ a{
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #262c86 0%, #06213c 100%);
     border: none;
     border-radius: 50px;
     padding: 1rem 2rem;
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(14, 29, 99, 0.4);
     cursor: pointer;
     transition: transform 0.3s;
     z-index: 50;
 }
 
 .btn-adicionar a {
-    color: white;
+    color: rgb(204, 123, 123);
     font-weight: 600;
 }
 
@@ -53,8 +53,8 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white; /* rgba(255, 255, 255, 0.7); */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(81, 166, 212, 0.697); /* rgba(255, 255, 255, 0.7); */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.707);
 }
 
 .logo img{
@@ -68,20 +68,20 @@ nav{
 }
 
 .paginas-nav a {
-  color: rgb(0, 0, 0);
+  color: rgb(233, 234, 248);
   font-weight: 500;
   transition: color 0.3s ease;
   font-family: 'Inter Tight', sans-serif;
 }
 
 .paginas-nav a:hover {
-    color: #e32b2b;
+    color: #14208f;
 }
 
 .botao-sair {
     display: none;
     background: white;
-    color: #000000;
+    color: #170b72;
     padding: 8px 22px;
     border-radius: 25px;
     text-decoration: none;
@@ -103,12 +103,12 @@ nav{
 }
 
 #icone-menu:hover{
-    color: #e32b2b;
+    color: #395785;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #5f92ba 6%, #082c6f 100%);
     color: white;
     padding: 100px 5%;
     text-align: center;
@@ -135,7 +135,7 @@ nav{
 }
 
 .btn-secondary {
-    background: white;
+    background: rgb(219, 220, 225);
     color: #000000;
     padding: 15px 40px;
     border-radius: 25px;
@@ -145,20 +145,20 @@ nav{
 }
 
 .btn-secondary:hover {
-    color: #e32b2b;
+    color: #2608bd;
     transform: translateY(-4px);
 }
 
 /* ODS Section */
 .ods-section {
     padding: 80px 5%;
-    background: #f8f9fa;
+    background: #b3d9ff8c;
     text-align: center;
 }
 
 .ods-section h2 {
     font-size: 36px;
-    color: #333;
+    color: #0000007b;
     margin-bottom: 20px;
 }
 
@@ -199,7 +199,7 @@ nav{
 .ods-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #000000;
+    color: #123b6b;
 }
 
 .ods-card p {
@@ -233,8 +233,8 @@ nav{
 .step-number {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
-    color: white;
+    background: linear-gradient(135deg, #c7dbea 6%, #082c6f 100%);
+    color: rgb(238, 241, 244);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -246,18 +246,18 @@ nav{
 
 .step h3 {
     margin-bottom: 10px;
-    color: #333;
+    color: #353644;
 }
 
 .step p {
-    color: #666;
+    color: #2a2f67;
     line-height: 1.6;
 }
 
 /* CTA Section */
 .cta-section {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
-    color: white;
+    background: linear-gradient(135deg, #5f92ba 6%, #082c6f 100%);
+    color: rgb(255, 255, 255);
     padding: 80px 5%;
     text-align: center;
 }
@@ -576,7 +576,7 @@ nav{
 /* CSS da página de cadastro */
 
 .body-cadastro, .body-perfil {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #5f92ba 6%, #082c6f 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -690,7 +690,7 @@ nav{
 }
 
 .transicao-form span:hover {
-    color: #348754;
+    color: #606eb3;
 }
 
 .botao-apagar {
@@ -713,7 +713,7 @@ nav{
 /* Estilos apenas para o formulário de doação (não afetam o formulário de cadastro) */
 
 .body-cadastro-doacao {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #5f92ba 6%, #082c6f 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -889,8 +889,8 @@ nav{
 }
 
 .botao-entrar:hover {
-    background: #83ca9e;
-    border: solid 2px #68ac82;
+    background: #3c5382;
+    border: solid 2px #a1abc2;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -955,7 +955,7 @@ nav{
 /* ============================= */
 
 .body-sobre {
-    background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
+    background: linear-gradient(135deg, #5f92ba 6%, #082c6f 100%);
 }
 
 .sobre-container {
@@ -965,7 +965,7 @@ nav{
 .sobre-content {
     max-width: 900px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 254, 254, 0.686);
     padding: 60px;
     border-radius: 18px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -979,7 +979,7 @@ nav{
 
 .sobre-subtitle {
     font-size: 1.15rem;
-    color: #555;
+    color: #555555aa;
     line-height: 1.6;
     margin-bottom: 50px;
 }
@@ -1002,19 +1002,19 @@ nav{
 .destaque {
     padding: 25px;
     border-radius: 14px;
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
+    background-color: #657e97;
+    border: 1px solid #fff9f9;
 }
 
 .destaque h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #cfc3c3;
 }
 
 .destaque p {
     font-size: 0.95rem;
-    color: #666;
+    color: #030303;
     line-height: 1.6;
 }
 
@@ -1037,4 +1037,15 @@ footer {
     color: #4aa7e198;
     font-size: 0.9rem;
     margin-top: 10px;
+}
+
+.animar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.animar.ativo {
+    opacity: 1;
+    transform: translateY(0);
 }
