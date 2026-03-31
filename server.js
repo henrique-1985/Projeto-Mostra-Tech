@@ -62,7 +62,6 @@ app.post('/cadastro', async function (req, res) {
             isONG:req.body.isONG
         });
         res.redirect('/');
-        window.alert("> Usuário cadastrado com sucesso!");
     } catch (error) {
         return res.send("> Erro ao cadastrar usuário: ");
     }

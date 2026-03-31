@@ -18,6 +18,7 @@ a{
 }
 
 .btn-adicionar {
+    display: none;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -810,6 +811,16 @@ nav{
     transform: translateY(-50%);
     width: 17px;
     height: 17px;
+}
+
+#input-nome-doador, #input-email-doador, #input-telefone-doador {
+    background-color: #f4f4f4;
+    border-color: #909090;
+    color: #909090;
+}
+
+#input-nome-doador + i, #input-email-doador + i, #input-telefone-doador + i {
+    color: #909090;
 }
 
 /* Estilos para página de perfil */
