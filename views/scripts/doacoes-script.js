@@ -10,7 +10,7 @@ const botoesFechar = [cancelarResgate, fecharPopup];
 
 //Função para acionar a caixa de confirmação
 resgatarDoacao.addEventListener("click", () => {
-    caixaPopup.style.display = 'block';
+    caixaPopup.classList.add("aberto");
 });
 
 //Função para confirmar o resgate, muda o texto, o ícone e os botões
@@ -25,18 +25,25 @@ confirmarResgate.addEventListener("click", () => {
 //Função para fechar a caixa ao clicar nos botões de cancelar ou fechar
 botoesFechar.forEach(botao => {
   botao.addEventListener("click", () => {
-    caixaPopup.style.display = 'none';
+    caixaPopup.classList.remove("aberto")
   });
 });
 
-//Script para alterar o que é exibido na página de doações se for ONG ou não
-window.addEventListener("DOMContentLoaded", () => {
-  const isOng = window.location.hash === "#ong";
-  const mostrarBotao = document.querySelectorAll(".botao-resgatar");
+//Script que altera a visibilidade dos botões de resgatar e adicionar doações dependendo do tipo de usuário
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const resgatarDoacao = document.querySelectorAll(".botao-resgatar");
+    const adicionarDoacao = document.querySelectorAll(".btn-adicionar");
 
-  if (isOng) {
-    mostrarBotao.forEach(botao => {
-      botao.style.display = "block";
-    });
-  }
+    resgatarDoacao.forEach(botao => botao.style.display = "none");
+    adicionarDoacao.forEach(botao => botao.style.display = "none");
+
+    if (user) {
+        if (user.isONG) {
+            window.location.hash = "ong";
+            resgatarDoacao.forEach(botao => botao.style.display = "block");
+        } else {
+            adicionarDoacao.forEach(botao => botao.style.display = "block");
+        }
+    }
 });

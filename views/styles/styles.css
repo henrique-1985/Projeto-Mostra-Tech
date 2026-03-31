@@ -64,6 +64,7 @@ nav{
 .paginas-nav{
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .paginas-nav a {
@@ -79,6 +80,19 @@ nav{
 
 .botao-sair {
     display: none;
+    background: white;
+    color: #000000;
+    padding: 8px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: ease 0.3s;
+    margin: 0;
+}
+
+.botao-sair:hover {
+    color: #e32b2b;
+    transform: translateY(-4px);
 }
 
 #icone-menu{
@@ -390,9 +404,10 @@ nav{
 }
 
 .linha-doador {
+    flex-direction: column;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 15px;
     padding-top: 15px;
     border-top: 1px solid #e0e0e0;
@@ -439,8 +454,9 @@ nav{
 }
 
 /* Estilos da caixa de confirmação de resgate */
+
 .popup {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 50;
     top: 0;
@@ -448,13 +464,18 @@ nav{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden; /* uso de visibility pois ao contrário do display:none , ele permite transições */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup.aberto { /* classe alterada pelo .js */
+    opacity: 1;
+    visibility: visible;
 }
 
 .popup-conteudo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto; 
     height: 300px;
     width: 450px;
     background: white;
@@ -465,6 +486,12 @@ nav{
     align-items: center;  
     border-radius: 30px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8); /* uso de scale pois ele permite aumentar o elemento sem alterar o tamanho original ou elementos adjacentes */
+    transition: transform 0.3s ease;
+}
+
+.popup.aberto .popup-conteudo {
+    transform: scale(1);
 }
 
 .popup-conteudo i {
@@ -472,20 +499,20 @@ nav{
     margin-top: -10px;
 }
 
-#popup-txt {
+#popup-txt, #popup-txt-deletar {
     font-weight: 600;
     font-size: 30px;
     margin: 15px 0 20px 0;
 }
 
-#confirmar {
+#confirmar, #btn-confirmar-deletar {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     color: white;
 }
 
-.popup-btn button, #btn-confirmar, #btn-fechar{
+.popup-btn button, #btn-confirmar, .botao-fechar{
     
     padding: 10px 24px;
     border-radius: 25px;
@@ -506,7 +533,7 @@ nav{
     box-shadow: 0 4px 12px rgba(106, 163, 221, 0.3);
 }
 
-#btn-fechar {
+.botao-fechar {
     display: none;
 }
 
@@ -525,8 +552,6 @@ nav{
     }
 
     .linha-doador {
-        flex-direction: column;
-        align-items: stretch;
         gap: 10px;
     }
 
@@ -550,23 +575,24 @@ nav{
 
 /* CSS da página de cadastro */
 
-.body-cadastro {
+.body-cadastro, .body-perfil {
     background: linear-gradient(135deg, #83ca86 0%, #6d94dc 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     height: 100vh;
+    padding:20px;
 }
 
-.container-form-cadastro {
+.container-form-cadastro{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     width: 450px;
-    height: 550px;
+    height: 600px;
     margin-top: 45px;
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
@@ -587,6 +613,7 @@ nav{
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: -20px;
 }
 
 .logo-form img {
@@ -666,6 +693,23 @@ nav{
     color: #348754;
 }
 
+.botao-apagar {
+    display: block;
+    margin: 20px auto 0;
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: ease .3s;
+}
+
+.botao-apagar:hover {
+    color: #e32b2b;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
 /* Estilos apenas para o formulário de doação (não afetam o formulário de cadastro) */
 
 .body-cadastro-doacao {
@@ -679,8 +723,8 @@ nav{
 .container-form-cad {
     display: flex;
     width: 450px;
-    height: 500px;
-    margin-top: 45px;
+    height: 620px;
+    margin-top: 70px;
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     overflow: hidden;
@@ -768,6 +812,45 @@ nav{
     height: 17px;
 }
 
+/* Estilos para página de perfil */
+
+.container-form-perfil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 450px;
+    height: 550px;
+    margin-top: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    
+}
+
+.caixa-editar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.tipo-usuario-linha {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.tipo-usuario-linha label {
+    font-weight: 600;
+    color: #555;
+}
+
 /* Ajustes para textarea e select em formulários com a mesma aparência */
 
 .titulo-form {
@@ -840,23 +923,31 @@ nav{
     backdrop-filter: blur(4px);
 }
 
+.paginas-nav li {
+    width: 100%;
+}
+
 .paginas-nav.aberto {
     max-height: 300px;
 }
 
-.paginas-nav a {
+.paginas-nav a, .botao-sair {
     display: block;
     padding: 1rem;
     color: black;
     transition: ease 0.4s;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
 
-.paginas-nav a:hover {
+.paginas-nav a:hover, .botao-sair:hover {
     color: black;
     background: rgba(0, 0, 0, 0.2);
+    transform: none;
 
 }
-
 }
 
 /* ============================= */

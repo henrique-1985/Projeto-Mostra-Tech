@@ -9,7 +9,84 @@
         <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
         <script src="../scripts/barra-nav-script.js"></script>
     </head>
-    <body>
+    <body class="body-perfil">
         <div id="link-navbar"></div> <!-- Div onde a barra de navegação será carregada -->
+
+        <div class="container-form-perfil">
+            <form class="caixa-editar" method="POST" action="/update-cadastro">
+                <h1 class="titulo-form">Minhas Informações</h1>
+                <div class="inputs-form">
+                    
+                    <div class="tipo-usuario-linha" >
+                        <label >Tipo de Usuário:</label>
+                        <p id="tipo-usuario-texto">Teste</p>
+                    </div>
+                    <input type="hidden" name="token" id="tokenField">
+                    <input type="hidden" name="id" id="idField">
+                    <div class="caixa-input">
+                        <input type="text" name="name" class="inputs campo-input" placeholder="Insira seu novo nome">
+                        <i class='bx  bx-user'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="email" name="email" class="inputs campo-input" placeholder="Insira seu novo email">
+                        <i class='bx  bx-envelope'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="tel" name="phone" id="telefoneInput" class="inputs campo-input" placeholder="Insira seu novo telefone">
+                        <i class='bx  bx-phone'></i> 
+                    </div>
+                    <div class="caixa-input">
+                        <input type="password" name="password" class="inputs campo-input" placeholder="Insira uma nova senha">
+                        <i class='bx  bx-lock'></i> 
+                    </div>
+                    <button type="submit" class="inputs botao-entrar" >Alterar Informações</button>
+                    <button class="botao-apagar" id="btn-deletar" type="button">Deletar Conta</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="popup" id="popup-deletar">
+            <div class="popup-conteudo">
+                <i class='bx  bx-message-circle-question-mark' id="popup-icone-deletar"></i> 
+                <p id="popup-txt-deletar">Deseja apagar sua conta?</p>
+                <div class="popup-btn">
+                    <button id="btn-confirmar-deletar">Confirmar</button>
+                    <button id="btn-cancelar-deletar">Cancelar</button>
+                </div>
+                <button class="botao-fechar" id="btn-fechar-deletar">Fechar</button>
+            </div>
+        </div>
+
+        <script src="../scripts/perfil-scripts.js"></script>
+        <script> // Script para preencher o formulário com os dados do usuário logado
+            document.addEventListener("DOMContentLoaded", () => {
+                const user = JSON.parse(localStorage.getItem("user"));
+                const form = document.querySelector(".caixa-editar");
+
+                form.name.value = user.name;
+                form.email.value = user.email;
+                form.password.value = user.password; //Só será preenchida para fins de demonstração, não deve ser usada em produção.
+                document.getElementById("telefoneInput").value = user.phone;
+                document.getElementById("tokenField").value = localStorage.getItem("token");
+                document.getElementById("idField").value = user.id;
+
+                const tipoUsuarioTexto = document.getElementById("tipo-usuario-texto");
+                tipoUsuarioTexto.textContent = user.isONG ? "ONG" : "Doador";
+            });
+
+            // Script para apagar a conta do usuário
+            document.getElementById('btn-confirmar-deletar').addEventListener('click', () => {
+                fetch('/deletar-cadastro', {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                        }
+                    }).then(() => {
+                        localStorage.removeItem('user');
+                        localStorage.removeItem('token');
+                        window.location.href = '/';
+                    });
+                });
+        </script>
     </body>
 </html>
